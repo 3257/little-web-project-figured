@@ -15,22 +15,21 @@
 
         </aside>
 
-
         <section id="weather-info">
 
-            <header id="weather-info-header" >TODAY in {{name}}</header>
+            <header id="weather-info-header">TODAY in {{name}}</header>
             <article id="weather-info-article" class="clear">
                 <div>{{main.temp}} C</div>
                 <div class="transparent">Precipitation: 0%</div>
-                <div class="transparent">Humidity: Humidity: {{main.humidity}}%</div>
+                <div class="transparent">Humidity: {{main.humidity}}%</div>
                 <div class="transparent">Wind: {{wind.speed}} m/s</div>
             </article>
             <aside id="weather-info-aside">
                 <div>June 07</div>
                 {{#weather}}
                 <div>{{this.icon}}</div>
+                <div class="transparent" id="weather-description">{{this.description}}</div>
                 {{/weather}}
-                <div class="transparent">Partly cloudy</div>
                 <div>Max t: 27 C</div>
                 <div class="transparent">Min t: 18 C</div>
 
@@ -45,29 +44,28 @@
 
 </head>
 <body>
-    <header id="main-header">
-        <div id="logo"><a href="http://localhost:63342/little/.idea/little%20project.html?_ijt=41imfdo5o8k4fkqher009db8pl#">GOT
-            WEATHER ?</a></div>
-        <nav id="main-nav">
-            <ul>
-                <li>SOFIA</li>
-                <li>PLOVDIV</li>
-                <li>VARNA</li>
-                <li>BURGAS</li>
-                <li>DOBRICH</li>
-            </ul>
-        </nav>
-        <nav id="side-nav">
-            <input type="search" placeholder=" e.g. city name">
-        </nav>
-    </header>
+<header id="main-header">
+    <div id="logo">GOT WEATHER ?</div>
+    <nav id="main-nav">
+        <ul>
+            <li>SOFIA</li>
+            <li>PLOVDIV</li>
+            <li>VARNA</li>
+            <li>BURGAS</li>
+            <li>DOBRICH</li>
+        </ul>
+    </nav>
+    <nav id="side-nav">
+        <input type="search" placeholder=" e.g. city name">
+    </nav>
+</header>
 
-    <main id="main-wrapper" class="clear">
+<main id="main-wrapper" class="clear transparent">
 
-    </main>
+</main>
 
-    <footer > CREATED BY DEYAN ALEKSANDROV FOR SODTSERVE DEMO ||
-        <a href="https://github.com/3257/soft-serve-web-project-figured-version">GITHUB REPO</a></footer>
+<footer class="clear"> CREATED BY DEYAN ALEKSANDROV FOR SOFTSERVE DEMO ||
+    <a href="https://github.com/3257/soft-serve-web-project-figured-version">GITHUB REPO</a></footer>
 
 </body>
 </html>
