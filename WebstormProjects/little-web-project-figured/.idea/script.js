@@ -15,16 +15,17 @@ $(function () {
         $sideNavInput = $("#side-nav input");
 
         //return data for sofia on page load
-        $mainWrapper.append($spinner);
+        // $mainWrapper.append($spinner);
 
 
     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5',
         function (data) {
                 $html = templateCompile(data);
-                $spinner.remove();
+                // $spinner.remove();
                 $mainWrapper.append($html);
 
             initializeMap(data.coord.lat,data.coord.lon,"map");
+
 
         })
 
@@ -34,14 +35,14 @@ $(function () {
 
         $cityName=$(this).html();
         $mainWrapper.empty();
-        $mainWrapper.append($spinner);
+        // $mainWrapper.append($spinner);
 
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' +
             $cityName +
             '&APPID=a28f075ad9633624934634a4d49a37c5',
             function (data) {
                     $html = templateCompile(data);
-                    $spinner.remove();
+                    // $spinner.remove();
                     $mainWrapper.append($html);
 
                 initializeMap(data.coord.lat,data.coord.lon,"map");
@@ -58,14 +59,14 @@ $(function () {
             $cityValue = $(this).val();
 
             $mainWrapper.empty();
-            $mainWrapper.append($spinner);
+            // $mainWrapper.append($spinner);
 
             $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' +
                 $cityValue +
                 '&APPID=a28f075ad9633624934634a4d49a37c5',
                 function (data) {
                     $html = templateCompile(data);
-                    $spinner.remove();
+                    // $spinner.remove();
                     $mainWrapper.append($html);
 
                     initializeMap(data.coord.lat,data.coord.lon,"map");

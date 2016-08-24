@@ -12,8 +12,9 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;}
+    background-size: cover;
 
+}
 
 #main-header{
     height: 90px;
@@ -174,20 +175,34 @@ body{
 
 #main-wrapper{
 
-    position: relative;
+    position: absolute;
+    left:5%;
+    top:15%;
+    margin-top: 10px;
     font-size: 30px;
     font-weight: 500;
     width: 100%;
     color: papayawhip;
 }
 
+
+#map {
+    position: relative;
+    height: 700px;
+    width: 60%;
+    float: left;
+    border-radius: 50%;
+
+}
+
 #weather-info{
     position: relative;
-    height: 400px;
-    width: 700px;
+    height: 750px;
+    width: 30%;
     float: left;
-    left: 10%;
-    top:200px;
+    margin-left: 1%;
+    border-radius: 5px;
+
     background: rgba(0, 0, 0, 0.5);
     font-weight: 100;
     font-size:25px;
@@ -239,14 +254,18 @@ body{
     color:rgba(255,255,255,.6);
 }
 
-#map {
+footer{
     position: relative;
-    height: 400px;
-    width: 800px;
-    float: left;
-
+    top:10px;
+    left:-70px;
+    text-align: center;
+    color: papayawhip;
 }
 
+footer a{
+    color: papayawhip;
+    text-decoration: none;
+}
 
 
 /*span{*/
