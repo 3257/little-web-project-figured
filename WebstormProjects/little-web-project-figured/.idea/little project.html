@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little Project Main</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDUQVimvvMF6OGukcy9Mh2kmzLKI7MsxM&callback=initMap"
+            async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script id="main-template" type="text/x-handlebars-template">
+
+
+        <section id="weather-info">
+
+            <header id="weather-info-header" >TODAY in {{name}}</header>
+            <article id="weather-info-article" class="clear">
+                <div>{{main.temp}} C</div>
+                <div class="transparent">Precipitation: 0%</div>
+                <div class="transparent">Humidity: Humidity: {{main.humidity}}%</div>
+                <div class="transparent">Wind: {{wind.speed}} m/s</div>
+            </article>
+            <aside id="weather-info-aside">
+                <div>June 07</div>
+                {{#weather}}
+                <div>{{this.icon}}</div>
+                {{/weather}}
+                <div class="transparent">Partly cloudy</div>
+                <div>Max t: 27 C</div>
+                <div class="transparent">Min t: 18 C</div>
+
+            </aside>
+
+
+            <aside id="map">
+            </aside>
+
+
+
+
+
+        </section>
+    </script>
+
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <header id="main-header">
+        <div id="logo"><a href="http://localhost:63342/little/.idea/little%20project.html?_ijt=41imfdo5o8k4fkqher009db8pl#">GOT
+            WEATHER ?</a></div>
+        <nav id="main-nav">
+            <ul>
+                <li>SOFIA</li>
+                <li>PLOVDIV</li>
+                <li>VARNA</li>
+                <li>BURGAS</li>
+                <li>DOBRICH</li>
+            </ul>
+        </nav>
+        <nav id="side-nav">
+            <input type="search" placeholder=" e.g. city name">
+        </nav>
+    </header>
+
+    <main id="main-wrapper" class="clear">
+
+
+    </main>
+
+
+
+</body>
+</html>
