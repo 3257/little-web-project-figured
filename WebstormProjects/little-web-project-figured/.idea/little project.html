@@ -18,23 +18,19 @@
         <section id="weather-info">
 
             <header id="weather-info-header">TODAY in {{name}}</header>
+            <div id="weather-date" class="transparent"></div>
+            <div id="current-weather-temp"><span class="temperature">{{main.temp}}</span> C</div>
+            <div id="weather-icon" class="clear"></div>
+
             <article id="weather-info-article" class="clear">
-                <div><span class="temperature">{{main.temp}}</span> C</div>
                 <div class="transparent">Precipitation: 0%</div>
                 <div class="transparent">Humidity: {{main.humidity}}%</div>
                 <div class="transparent">Wind: {{wind.speed}} m/s</div>
             </article>
-            <aside id="weather-info-aside">
-                <div id="weather-date"></div>
-                {{#weather}}
-                <div id="weather-icon"></div>
-                <div class="transparent" id="weather-description">{{this.description}}</div>
-                {{/weather}}
+            <aside id="weather-info-aside" class="clear">
                 <div>Max t: <span class="temperature">{{main.temp_max}} </span> C</div>
                 <div class="transparent">Min t: <span class="temperature">{{main.temp_min}}</span> C</div>
-
             </aside>
-
         </section>
 
 
