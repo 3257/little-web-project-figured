@@ -32,8 +32,7 @@ $(function () {
 
             temperatureFix($(".temperature"));
 
-            dateFix($("#weather-date"),data);
-
+            dateFix($("#weather-date"), data);
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -61,7 +60,7 @@ $(function () {
 
                 temperatureFix($(".temperature"));
 
-                dateFix($("#weather-date"),data);
+                dateFix($("#weather-date"), data);
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
             })
@@ -91,7 +90,7 @@ $(function () {
 
                     temperatureFix($(".temperature"));
 
-                    dateFix($("#weather-date"),data);
+                    dateFix($("#weather-date"), data);
 
                     initializeMap(data.coord.lat, data.coord.lon, "map");
 
@@ -284,11 +283,11 @@ $(function () {
         if (weatherWord.indexOf("few clouds") >= 0) {
             changeBgToFewClouds();
         }
-        else if (weatherWord.indexOf("scattered clouds") >= 0){
+        else if (weatherWord.indexOf("scattered clouds") >= 0) {
             changeBgToScatteredClouds();
         }
 
-        else if (weatherWord.indexOf("broken clouds") >= 0){
+        else if (weatherWord.indexOf("broken clouds") >= 0) {
             changeBgToBrokenClouds();
         }
         else if (weatherWord.indexOf("clear") >= 0) {
@@ -297,13 +296,13 @@ $(function () {
         else if (weatherWord.indexOf("rain") >= 0) {
             changeBgToRain();
         }
-        else if (weatherWord.indexOf("thunderstorm") >= 0){
+        else if (weatherWord.indexOf("thunderstorm") >= 0) {
             changeBgToThunder();
         }
-        else if (weatherWord.indexOf("snow") >= 0){
+        else if (weatherWord.indexOf("snow") >= 0) {
             changeBgToSnow();
         }
-        else if(weatherWord.indexOf("mist") >= 0){
+        else if (weatherWord.indexOf("mist") >= 0) {
             changeBgToMist();
         }
     }
@@ -316,17 +315,17 @@ $(function () {
         })
     }
 
-    function temperatureFix($selector){
+    function temperatureFix($selector) {
 
         var $tempClass = $selector,
             InlineTempNumber = $tempClass.html();
-        $tempClass.html((InlineTempNumber/10).toFixed(1));
+        $tempClass.html((InlineTempNumber / 10).toFixed(1));
 
     }
 
-    function dateFix($selector,data){
+    function dateFix($selector, data) {
         var $dateDiv = $selector;
-        $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0,16));
+        $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
     }
 
 })
