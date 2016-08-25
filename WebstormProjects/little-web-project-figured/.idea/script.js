@@ -24,6 +24,7 @@ $(function () {
             //change background on load depending on weather type
             changeBackGround(data.weather[0].description);
 
+
             //compiling the html template and appending the template itself
             $html = templateCompile(data);
             $mainWrapper.append($html);
@@ -51,11 +52,10 @@ $(function () {
             $cityName +
             '&APPID=a28f075ad9633624934634a4d49a37c5',
             function (data) {
-                changeBackGround(data.weather[0].description);
                 $html = templateCompile(data);
                 // $spinner.remove();
                 $mainWrapper.append($html);
-
+                changeBackGround(data.weather[0].description);
                 displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
                 temperatureFix($(".temperature"));
@@ -99,12 +99,22 @@ $(function () {
     })
 
     function initializeMap(langitude, longitude, selector) {
+        var myCenter = new google.maps.LatLng(langitude, longitude);
         var mapProp = {
-            center: new google.maps.LatLng(langitude, longitude),
+            center: myCenter,
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
+
+
         var map = new google.maps.Map(document.getElementById(selector), mapProp);
+
+        var mapMarker = new google.maps.Marker({
+            position:myCenter,
+        });
+
+        mapMarker.setMap(map);
+
     }
 
     function changeBgToClouds() {
@@ -290,7 +300,7 @@ $(function () {
         else if (weatherWord.indexOf("broken clouds") >= 0) {
             changeBgToBrokenClouds();
         }
-        else if (weatherWord.indexOf("clear") >= 0) {
+        else if (weatherWord.indexOf("Clear") >= 0) {
             changeBgToSun();
         }
         else if (weatherWord.indexOf("rain") >= 0) {
