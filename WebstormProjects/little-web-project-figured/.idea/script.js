@@ -22,7 +22,7 @@ $(function () {
         function (data) {
 
             //change background on load depending on weather type
-            changeBackGround(data.weather[0].description);
+            //changeBackGround(data.weather[0].description);
 
 
             //compiling the html template and appending the template itself
@@ -32,6 +32,12 @@ $(function () {
             displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
             temperatureFix($(".temperature"));
+
+            //fix pressure
+            fixNumberToOneDecimal($("#weather-pressure span"));
+
+            //fix wind
+            fixNumberToOneDecimal($("#weather-wind span"));
 
             dateFix($("#weather-date"), data);
 
@@ -53,12 +59,18 @@ $(function () {
             '&APPID=a28f075ad9633624934634a4d49a37c5',
             function (data) {
                 $html = templateCompile(data);
-                // $spinner.remove();
                 $mainWrapper.append($html);
-                changeBackGround(data.weather[0].description);
+
+                //changeBackGround(data.weather[0].description);
                 displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
                 temperatureFix($(".temperature"));
+
+                //fix pressure
+                fixNumberToOneDecimal($("#weather-pressure span"));
+
+                //fix wind
+                fixNumberToOneDecimal($("#weather-wind span"));
 
                 dateFix($("#weather-date"), data);
 
@@ -81,14 +93,19 @@ $(function () {
                 $cityValue +
                 '&APPID=a28f075ad9633624934634a4d49a37c5',
                 function (data) {
-                    changeBackGround(data.weather[0].description);
+                    //changeBackGround(data.weather[0].description);
                     $html = templateCompile(data);
-                    // $spinner.remove();
                     $mainWrapper.append($html);
 
                     displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
                     temperatureFix($(".temperature"));
+
+                    //fix pressure
+                    fixNumberToOneDecimal($("#weather-pressure span"));
+
+                    //fix wind
+                    fixNumberToOneDecimal($("#weather-wind span"));
 
                     dateFix($("#weather-date"), data);
 
@@ -109,12 +126,22 @@ $(function () {
 
         var map = new google.maps.Map(document.getElementById(selector), mapProp);
 
+
         var mapMarker = new google.maps.Marker({
             position:myCenter,
         });
-
         mapMarker.setMap(map);
 
+        attacheMapMessage("<p id=\"hook\">Hello World!</p>",map,mapMarker);
+
+    }
+
+    function attacheMapMessage(message,map,marker){
+        var infoWindow = new google.maps.InfoWindow({
+            title:message
+        });
+
+        infoWindow.open(map,marker);
     }
 
     function changeBgToClouds() {
@@ -290,31 +317,31 @@ $(function () {
             })
         }
 
-        if (weatherWord.indexOf("few clouds") >= 0) {
-            changeBgToFewClouds();
-        }
-        else if (weatherWord.indexOf("scattered clouds") >= 0) {
-            changeBgToScatteredClouds();
-        }
-
-        else if (weatherWord.indexOf("broken clouds") >= 0) {
-            changeBgToBrokenClouds();
-        }
-        else if (weatherWord.indexOf("Clear") >= 0) {
-            changeBgToSun();
-        }
-        else if (weatherWord.indexOf("rain") >= 0) {
-            changeBgToRain();
-        }
-        else if (weatherWord.indexOf("thunderstorm") >= 0) {
-            changeBgToThunder();
-        }
-        else if (weatherWord.indexOf("snow") >= 0) {
-            changeBgToSnow();
-        }
-        else if (weatherWord.indexOf("mist") >= 0) {
-            changeBgToMist();
-        }
+        // if (weatherWord.indexOf("few clouds") >= 0) {
+        //     changeBgToFewClouds();
+        // }
+        // else if (weatherWord.indexOf("scattered clouds") >= 0) {
+        //     changeBgToScatteredClouds();
+        // }
+        //
+        // else if (weatherWord.indexOf("broken clouds") >= 0) {
+        //     changeBgToBrokenClouds();
+        // }
+        // else if (weatherWord.indexOf("Clear") >= 0) {
+        //     changeBgToSun();
+        // }
+        // else if (weatherWord.indexOf("rain") >= 0) {
+        //     changeBgToRain();
+        // }
+        // else if (weatherWord.indexOf("thunderstorm") >= 0) {
+        //     changeBgToThunder();
+        // }
+        // else if (weatherWord.indexOf("snow") >= 0) {
+        //     changeBgToSnow();
+        // }
+        // else if (weatherWord.indexOf("mist") >= 0) {
+        //     changeBgToMist();
+        // }
     }
 
     //http://openweathermap.org/img/w/1 + {weather icon} + .png template
@@ -336,6 +363,13 @@ $(function () {
     function dateFix($selector, data) {
         var $dateDiv = $selector;
         $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
+    }
+
+    function fixNumberToOneDecimal($selector){
+        var $selected = $selector,
+            digit = $selected.html();
+
+        $selected.html(Number(digit).toFixed(1));
     }
 
 })
