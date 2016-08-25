@@ -7,14 +7,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: "Kimberley";
-    background-color: floralwhite;
     max-width: 100%;
     overflow-x: hidden;
-
-}
-
-.rainy {
-    background: url("http://img08.deviantart.net/e679/i/2012/046/b/f/storm_clouds_stock_by_mysticmorning-d4puqek.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,7 +17,10 @@ body {
     -moz-transition: background-color 0.4s ease;
     -o-transition: background-color 0.4s ease;
     transition: background-color 0.4s ease;
+
 }
+
+
 
 #main-header {
     height: 90px;
@@ -103,7 +100,10 @@ body {
 
 #side-nav input:focus {
 
+    outline: none;
     background-color: rgba(249, 225, 125, .2);
+    border-color: rgba(249, 225, 125);
+    box-shadow: 0 0 10px #9ecaed;
     width: 230px;
     text-align: center;
 }
@@ -120,6 +120,25 @@ body {
 /* Firefox > 19 */
 #side-nav input::-moz-placeholder {
     color: floralwhite;
+}
+
+#side-nav input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+/* FF 4-18 */
+#side-nav input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 19+ */
+#side-nav input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* IE 10+ */
+#side-nav input:focus:-ms-input-placeholder {
+    color: transparent;
 }
 
 .spinner {
@@ -245,19 +264,23 @@ body {
     font-size: 17px;
 }
 
+/*date*/
 #weather-info-aside div:first-of-type {
     font-size: 22px;
     text-align: right;
 }
 
+/*weather icon*/
 #weather-info-aside div:nth-of-type(2) {
-    height: 150px;
-    width: 200px;
-    border: 3px solid black;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100px;
+    width: 100px
 }
 
+/*max temperature*/
 #weather-info-aside div:nth-of-type(4) {
     margin-top: 10px;
     font-size: 25px;

@@ -15,19 +15,27 @@ $(function () {
         $sideNavInput = $("#side-nav input"),
         $logo = $("#logo");
 
-
-    //return data for sofia on page load
     // $mainWrapper.append($spinner);
 
-
+    //return data for sofia on page load
     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5',
         function (data) {
 
+            //change background on load depending on weather type
             changeBackGround(data.weather[0].description);
+
+            //compiling the html template and appending the template itself
             $html = templateCompile(data);
-            // $spinner.remove();
             $mainWrapper.append($html);
 
+            displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
+
+            temperatureFix($(".temperature"));
+
+            dateFix($("#weather-date"),data);
+
+
+            //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
 
         })
@@ -48,6 +56,12 @@ $(function () {
                 $html = templateCompile(data);
                 // $spinner.remove();
                 $mainWrapper.append($html);
+
+                displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
+
+                temperatureFix($(".temperature"));
+
+                dateFix($("#weather-date"),data);
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
             })
@@ -72,6 +86,12 @@ $(function () {
                     $html = templateCompile(data);
                     // $spinner.remove();
                     $mainWrapper.append($html);
+
+                    displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
+
+                    temperatureFix($(".temperature"));
+
+                    dateFix($("#weather-date"),data);
 
                     initializeMap(data.coord.lat, data.coord.lon, "map");
 
@@ -105,11 +125,11 @@ $(function () {
         })
     }
 
-    function changeBgToSun() {
+    function changeBgToFewClouds() {
         $("body").fadeTo("slow", 0.9, "linear", function () {
 
             $(this).css({
-                "background": "url(\"http://i.ytimg.com/vi/3EXe5cx5S-0/maxresdefault.jpg\") no-repeat center center fixed",
+                "background": "url(\"http://il2.picdn.net/shutterstock/videos/16907806/thumb/1.jpg\") no-repeat center center fixed",
                 "-webkit-background-size": "cover",
                 "-moz-background-size": "cover",
                 "-o-background-size": "cover",
@@ -122,11 +142,11 @@ $(function () {
         })
     }
 
-    function changeBgToRain() {
+    function changeBgToScatteredClouds() {
         $("body").fadeTo("slow", 0.9, "linear", function () {
 
             $(this).css({
-                "background": "url(\"http://images4.alphacoders.com/831/83196.jpg\") no-repeat center center fixed",
+                "background": "url(\"http://freebie.photography/background/sunset.jpg\") no-repeat center center fixed",
                 "-webkit-background-size": "cover",
                 "-moz-background-size": "cover",
                 "-o-background-size": "cover",
@@ -139,11 +159,11 @@ $(function () {
         })
     }
 
-    function imageTemplate() {
+    function changeBgToBrokenClouds() {
         $("body").fadeTo("slow", 0.9, "linear", function () {
 
             $(this).css({
-                "background": "url(\"http://www.mbagusi.com/i/hurricane-widescreen-wallpaper.jpg\") no-repeat center center fixed",
+                "background": "url(\"https://upload.wikimedia.org/wikipedia/commons/5/5b/Clouds_over_Africa.jpg\") no-repeat center center fixed",
                 "-webkit-background-size": "cover",
                 "-moz-background-size": "cover",
                 "-o-background-size": "cover",
@@ -155,10 +175,121 @@ $(function () {
             })
         })
     }
+
 
     function changeBackGround(weatherWord) {
-        if (weatherWord.indexOf("clouds") >= 0) {
-            changeBgToClouds();
+
+        function changeBgToSun() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"https://cdn.cloudpix.co/images/sunny/background-blue-dark-paper-sky-sunny-sunrise-wallpaper-wallpaper-sky-e1c63cfd6e6cd431bdc3be9b3cbb23fe-large-1130435.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        function changeBgToRain() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"http://images4.alphacoders.com/831/83196.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        function changeBgToMist() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"https://img0.etsystatic.com/000/0/5540808/il_fullxfull.243505014.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        function changeBgToThunder() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"http://wallpapercave.com/wp/8M5Odq4.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        function changeBgToSnow() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"http://images.all-free-download.com/images/graphiclarge/elements_of_winter_with_snow_backgrounds_vector_522942.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        function imageTemplate() {
+            $("body").fadeTo("slow", 0.9, "linear", function () {
+
+                $(this).css({
+                    "background": "url(\"http://www.mbagusi.com/i/hurricane-widescreen-wallpaper.jpg\") no-repeat center center fixed",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover",
+                    "-webkit-transition": "background 0.5s ease",
+                    "-moz-transition": "background 0.5s ease",
+                    "-o-transition": "background 0.5s ease",
+                    "transition": "background 0.5s ease"
+                })
+            })
+        }
+
+        if (weatherWord.indexOf("few clouds") >= 0) {
+            changeBgToFewClouds();
+        }
+        else if (weatherWord.indexOf("scattered clouds") >= 0){
+            changeBgToScatteredClouds();
+        }
+
+        else if (weatherWord.indexOf("broken clouds") >= 0){
+            changeBgToBrokenClouds();
         }
         else if (weatherWord.indexOf("clear") >= 0) {
             changeBgToSun();
@@ -166,9 +297,36 @@ $(function () {
         else if (weatherWord.indexOf("rain") >= 0) {
             changeBgToRain();
         }
-        else {
-            changeBgToSun();
+        else if (weatherWord.indexOf("thunderstorm") >= 0){
+            changeBgToThunder();
         }
+        else if (weatherWord.indexOf("snow") >= 0){
+            changeBgToSnow();
+        }
+        else if(weatherWord.indexOf("mist") >= 0){
+            changeBgToMist();
+        }
+    }
+
+    //http://openweathermap.org/img/w/1 + {weather icon} + .png template
+    function displayWeatherIcon($selectorID, weatherIcon) {
+        $selectorID.css({
+            "backgroundImage": "url(\"http://openweathermap.org/img/w/" + weatherIcon + ".png\") ",
+
+        })
+    }
+
+    function temperatureFix($selector){
+
+        var $tempClass = $selector,
+            InlineTempNumber = $tempClass.html();
+        $tempClass.html((InlineTempNumber/10).toFixed(1));
+
+    }
+
+    function dateFix($selector,data){
+        var $dateDiv = $selector;
+        $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0,16));
     }
 
 })
