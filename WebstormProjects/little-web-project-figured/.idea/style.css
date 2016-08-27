@@ -263,3 +263,11 @@ footer a {
     color: floralwhite;
     text-decoration: none;
 }
+
+.infoWindowNotice a{
+    font-family: "Kimberley";
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size:20px;
+}

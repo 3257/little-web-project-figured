@@ -116,32 +116,37 @@ $(function () {
     })
 
     function initializeMap(langitude, longitude, selector) {
-        var myCenter = new google.maps.LatLng(langitude, longitude);
-        var mapProp = {
-            center: myCenter,
-            zoom: 12,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+        var myCenter = new google.maps.LatLng(langitude, longitude),
+            mapProp = {
+                center: myCenter,
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+            map = new google.maps.Map(document.getElementById(selector), mapProp),
 
 
-        var map = new google.maps.Map(document.getElementById(selector), mapProp);
+            mapMarker = new google.maps.Marker({
+                position: myCenter,
+                map: map
+            }),
+            contentString = '<p class="infoWindowNotice">' +
+                '<a href="#">' +
+                '5-DAY FORECAST' +
+                '</a>' +
+                '</p>' +
+                '<p class="infoWindowNotice">' +
+                '<a href="#">' +
+                '10-DAY FORECAST' +
+                '</a>' +
+                '</p>',
 
+            infowindow = new google.maps.InfoWindow({
+                content: contentString
 
-        var mapMarker = new google.maps.Marker({
-            position:myCenter,
-        });
-        mapMarker.setMap(map);
+            });
 
-        attacheMapMessage("<p id=\"hook\">Hello World!</p>",map,mapMarker);
+        infowindow.open(map, mapMarker);
 
-    }
-
-    function attacheMapMessage(message,map,marker){
-        var infoWindow = new google.maps.InfoWindow({
-            title:message
-        });
-
-        infoWindow.open(map,marker);
     }
 
     function changeBgToClouds() {
@@ -365,7 +370,7 @@ $(function () {
         $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
     }
 
-    function fixNumberToOneDecimal($selector){
+    function fixNumberToOneDecimal($selector) {
         var $selected = $selector,
             digit = $selected.html();
 
