@@ -343,16 +343,21 @@ function initializeMap(langitude, longitude, idSelector) {
             position: myCenter,
             map: map
         }),
-        // contentString = '<p class="infoWindowNotice">' +
-        //     '<a href="#">' +
-        //     '5-DAY FORECAST' +
-        //     '</a>' +
-        //     '</p>' +
-        //     '<p class="infoWindowNotice">' +
-        //     '<a href="#">' +
-        //     '10-DAY FORECAST' +
-        //     '</a>' +
-        //     '</p>',
+        contentString = '<p class="infoWindowNotice">' +
+            '<a href="http://nadido.site88.net/index-five-day.html">' +
+            '5-DAY FORECAST' +
+            '</a>' +
+            '</p>' +
+            '<p class="infoWindowNotice">' +
+            '<a href="http://nadido.site88.net/">' +
+            'CURRENT WEATHER' +
+            '</a>' +
+            '</p>' +
+            '<p class="infoWindowNotice">' +
+            '<a href="http://nadido.site88.net/index-full-weather-map.html">' +
+            'FULL WEATHER MAP' +
+            '</a>' +
+            '</p>'
 
         infowindow = new google.maps.InfoWindow({
             content: contentString

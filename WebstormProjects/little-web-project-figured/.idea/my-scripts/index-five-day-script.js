@@ -13,8 +13,10 @@ $(function () {
 
 
     //return data for sofia on page load
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5",
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=Sofia&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
         function (data) {
+
+        console.log(data);
 
             $cityHeader.html("Weather in " + data.city.name);
             $html = fiveDayTemplateCompile(data);
@@ -29,9 +31,9 @@ $(function () {
 
         $cityName = $(this).html();
 
-        $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" +
+        $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
             $cityName +
-            "&APPID=a28f075ad9633624934634a4d49a37c5",
+            "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
             function (data) {
                 $fiveDayForecastContent.empty();
 
@@ -54,9 +56,9 @@ $(function () {
 
             $cityValue = $(this).val();
 
-            $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" +
+            $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
                 $cityValue +
-                "&APPID=a28f075ad9633624934634a4d49a37c5",
+                "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
                 function (data) {
 
                     $fiveDayForecastContent.empty();
