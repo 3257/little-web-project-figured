@@ -1,6 +1,3 @@
-/**
- * Created by dido on 20.08.16.
- */
 $(function () {
 
     var $namesWrap = $("#main-nav ul"),
@@ -9,21 +6,11 @@ $(function () {
         $cityName,
         $html,
         $mainWrapper = $("#main-wrapper"),
-        $spinner = $("<div/>", {class: "spinner"}),
-        $cube1 = $("<div/>", {class: "cube1"}).appendTo($spinner),
-        $cube2 = $("<div/>", {class: "cube2"}).appendTo($spinner),
-        $sideNavInput = $("#side-nav input"),
-        $logo = $("#logo");
-
-    // $mainWrapper.append($spinner);
+        $sideNavInput = $("#side-nav input");
 
     //return data for sofia on page load
-    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5',
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5",
         function (data) {
-
-            //change background on load depending on weather type
-            //changeBackGround(data.weather[0].description);
-
 
             //compiling the html template and appending the template itself
             $html = templateCompile(data);
@@ -48,20 +35,18 @@ $(function () {
 
 
     //click-function for city names given in navigation
-    $namesWrap.on('click', 'li', function () {
+    $namesWrap.on("click", "li", function () {
 
         $cityName = $(this).html();
         $mainWrapper.empty();
-        // $mainWrapper.append($spinner);
 
-        $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' +
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
             $cityName +
-            '&APPID=a28f075ad9633624934634a4d49a37c5',
+            "&APPID=a28f075ad9633624934634a4d49a37c5",
             function (data) {
                 $html = templateCompile(data);
                 $mainWrapper.append($html);
 
-                //changeBackGround(data.weather[0].description);
                 displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
                 temperatureFix($(".temperature"));
@@ -87,13 +72,12 @@ $(function () {
             $cityValue = $(this).val();
 
             $mainWrapper.empty();
-            // $mainWrapper.append($spinner);
 
-            $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' +
+            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
                 $cityValue +
-                '&APPID=a28f075ad9633624934634a4d49a37c5',
+                "&APPID=a28f075ad9633624934634a4d49a37c5",
                 function (data) {
-                    //changeBackGround(data.weather[0].description);
+
                     $html = templateCompile(data);
                     $mainWrapper.append($html);
 
@@ -115,39 +99,6 @@ $(function () {
         }
     })
 
-    function initializeMap(langitude, longitude, selector) {
-        var myCenter = new google.maps.LatLng(langitude, longitude),
-            mapProp = {
-                center: myCenter,
-                zoom: 12,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            },
-            map = new google.maps.Map(document.getElementById(selector), mapProp),
-
-
-            mapMarker = new google.maps.Marker({
-                position: myCenter,
-                map: map
-            }),
-            contentString = '<p class="infoWindowNotice">' +
-                '<a href="#">' +
-                '5-DAY FORECAST' +
-                '</a>' +
-                '</p>' +
-                '<p class="infoWindowNotice">' +
-                '<a href="#">' +
-                '10-DAY FORECAST' +
-                '</a>' +
-                '</p>',
-
-            infowindow = new google.maps.InfoWindow({
-                content: contentString
-
-            });
-
-        infowindow.open(map, mapMarker);
-
-    }
 
     function changeBgToClouds() {
         $("body").fadeTo("slow", 0.9, "linear", function () {
@@ -349,32 +300,65 @@ $(function () {
         // }
     }
 
-    //http://openweathermap.org/img/w/1 + {weather icon} + .png template
-    function displayWeatherIcon($selectorID, weatherIcon) {
-        $selectorID.css({
-            "backgroundImage": "url(\"http://openweathermap.org/img/w/" + weatherIcon + ".png\") ",
-
-        })
-    }
-
-    function temperatureFix($selector) {
-
-        var $tempClass = $selector,
-            InlineTempNumber = $tempClass.html();
-        $tempClass.html((InlineTempNumber / 10).toFixed(1));
-
-    }
-
-    function dateFix($selector, data) {
-        var $dateDiv = $selector;
-        $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
-    }
-
-    function fixNumberToOneDecimal($selector) {
-        var $selected = $selector,
-            digit = $selected.html();
-
-        $selected.html(Number(digit).toFixed(1));
-    }
-
 })
+
+function displayWeatherIcon($selectorID, weatherIcon) {
+    $selectorID.css({
+        "backgroundImage": "url(\"http://openweathermap.org/img/w/" + weatherIcon + ".png\") ",
+
+    })
+}
+
+function temperatureFix($selector) {
+
+    var $tempClass = $selector,
+        InlineTempNumber = $tempClass.html();
+    $tempClass.html((InlineTempNumber / 10).toFixed(1));
+
+}
+
+function dateFix($selector, data) {
+    var $dateDiv = $selector;
+    $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
+}
+
+function fixNumberToOneDecimal($selector) {
+    var $selected = $selector,
+        digit = $selected.html();
+
+    $selected.html(Number(digit).toFixed(1));
+}
+
+function initializeMap(langitude, longitude, idSelector) {
+    var myCenter = new google.maps.LatLng(langitude, longitude),
+        mapProp = {
+            center: myCenter,
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        },
+        map = new google.maps.Map(document.getElementById(idSelector), mapProp),
+
+
+        mapMarker = new google.maps.Marker({
+            position: myCenter,
+            map: map
+        }),
+        // contentString = '<p class="infoWindowNotice">' +
+        //     '<a href="#">' +
+        //     '5-DAY FORECAST' +
+        //     '</a>' +
+        //     '</p>' +
+        //     '<p class="infoWindowNotice">' +
+        //     '<a href="#">' +
+        //     '10-DAY FORECAST' +
+        //     '</a>' +
+        //     '</p>',
+
+        infowindow = new google.maps.InfoWindow({
+            content: contentString
+
+        });
+
+    infowindow.open(map, mapMarker);
+
+}

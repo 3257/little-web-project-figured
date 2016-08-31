@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Little Project Main</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Got Weather? => Current Weather</title>
+    <link rel="stylesheet" href="my-css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDUQVimvvMF6OGukcy9Mh2kmzLKI7MsxM&callback=initMap"
             async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
     <script id="main-template" type="text/x-handlebars-template">
-
-
-        <aside id="map">
-
-        </aside>
+        <aside id="map"></aside>
 
         <section id="weather-info">
 
             <header id="weather-info-header">TODAY in {{name}}</header>
             <div id="weather-date" class="transparent"></div>
+            {{#weather}}
+            <div id="weather-description" class="transparent">{{this.description}}</div>
+            {{/weather}}
             <div id="current-weather-temp"><span class="temperature">{{main.temp}}</span> C</div>
             <div id="weather-icon" class="clear"></div>
 
@@ -32,14 +32,13 @@
                 <div class="transparent">Min t: <span class="temperature">{{main.temp_min}}</span> C</div>
             </aside>
         </section>
-
-
     </script>
 
-    <script src="script.js"></script>
+    <script src="my-scripts/index-script.js"></script>
 
 </head>
 <body>
+
 <header id="main-header">
     <div id="logo">GOT WEATHER ?</div>
     <nav id="main-nav">
@@ -56,12 +55,11 @@
     </nav>
 </header>
 
-<main id="main-wrapper" class="clear transparent">
-
-</main>
+<main id="main-wrapper" class="clear transparent"></main>
 
 <footer class="clear"> CREATED BY DEYAN ALEKSANDROV FOR SOFTSERVE DEMO ||
     <a href="https://github.com/3257/soft-serve-web-project-figured-version">GITHUB REPO</a></footer>
+
 
 </body>
 </html>

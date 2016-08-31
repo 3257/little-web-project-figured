@@ -195,7 +195,13 @@ body {
 #weather-date {
     position: relative;
     text-align: center;
+}
+
+#weather-description{
+    position: relative;
+    text-align: center;
     margin: 20px;
+
 }
 
 #current-weather-temp {
@@ -271,3 +277,41 @@ footer a {
     text-align: center;
     font-size:20px;
 }
+
+/*Five-day weather page additions*/
+
+#five-day-map{
+    position: relative;
+    float: right;
+    height: 1000px;
+    max-height: 100%;
+    width:30%;
+}
+
+#five-day-forecast-nav {
+    float: left;
+    position: relative;
+    list-style: none;
+    margin:0;
+    padding:0;
+    height: 100%;
+    overflow: auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+#five-day-forecast-content{
+    position: relative;
+    float: left;
+    margin-left: 15%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.no-initial-display{
+    display: none;
+}
+
+
+
+
+

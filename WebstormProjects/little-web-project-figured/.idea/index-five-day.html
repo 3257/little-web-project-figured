@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Got Weather? => 5-Day Forecast</title>
+
+    <link rel="stylesheet" href="my-css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDUQVimvvMF6OGukcy9Mh2kmzLKI7MsxM&callback=initMap"
+            async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
+    <script id="five-day-template" type="text/x-handlebars-template">
+
+        <div id="day-one" >
+            <p>{{list.1.dt_txt}}</p>
+            <p>Humidity: {{list.1.main.humidity}}%</p>
+            <p>Pressure: {{list.1.main.pressure}}hPA</p>
+            <p>t: {{list.1.main.temp}}</p>
+            <p>Description: {{list.1.weather.0.description}}</p>
+            <p>Icon: {{list.1.weather.0.icon}}</p>
+            <p>Wind speed: {{list.1.wind.speed}}m/s</p>
+
+        </div>
+        <div id="day-two" class="no-initial-display">
+            <p>{{list.9.dt_txt}}</p>
+            <p>Humidity: {{list.9.main.humidity}}%</p>
+            <p>Pressure: {{list.9.main.pressure}}hPA</p>
+            <p>t: {{list.9.main.temp}}</p>
+            <p>Description: {{list.9.weather.0.description}}</p>
+            <p>Icon: {{list.9.weather.0.icon}}</p>
+            <p>Wind speed: {{list.9.wind.speed}}m/s</p>
+        </div>
+        <div id="day-three" class="no-initial-display">
+            <p>{{list.17.dt_txt}}</p>
+            <p>Humidity: {{list.17.main.humidity}}%</p>
+            <p>Pressure: {{list.17.main.pressure}}hPA</p>
+            <p>t: {{list.17.main.temp}}</p>
+            <p>Description: {{list.17.weather.0.description}}</p>
+            <p>Icon: {{list.17.weather.0.icon}}</p>
+            <p>Wind speed: {{list.17.wind.speed}}m/s</p>
+        </div>
+        <div id="day-four" class="no-initial-display">
+            <p>{{list.25.dt_txt}}</p>
+            <p>Humidity: {{list.25.main.humidity}}%</p>
+            <p>Pressure: {{list.25.main.pressure}}hPA</p>
+            <p>t: {{list.25.main.temp}}</p>
+            <p>Description: {{list.25.weather.0.description}}</p>
+            <p>Icon: {{list.25.weather.0.icon}}</p>
+            <p>Wind speed: {{list.25.wind.speed}}m/s</p>
+        </div>
+        <div id="day-five" class="no-initial-display">
+            <p>{{list.33.dt_txt}}</p>
+            <p>Humidity: {{list.33.main.humidity}}%</p>
+            <p>Pressure: {{list.33.main.pressure}}hPA</p>
+            <p>t: {{list.33.main.temp}}</p>
+            <p>Description: {{list.33.weather.0.description}}</p>
+            <p>Icon: {{list.33.weather.0.icon}}</p>
+            <p>Wind speed: {{list.33.wind.speed}}m/s</p>
+        </div>
+
+    </script>
+
+    <script src="my-scripts/index-script.js"></script>
+    <script src="my-scripts/index-five-day-script.js"></script>
+</head>
+<body>
+
+<header id="main-header">
+    <div id="logo">GOT WEATHER ?</div>
+    <nav id="main-nav">
+        <ul>
+            <li>SOFIA</li>
+            <li>PLOVDIV</li>
+            <li>VARNA</li>
+            <li>BURGAS</li>
+            <li>DOBRICH</li>
+        </ul>
+    </nav>
+    <nav id="side-nav">
+        <input type="search" placeholder=" e.g. city name">
+    </nav>
+</header>
+
+<main id="main-wrapper" class="clear transparent">
+    <ul id="five-day-forecast-nav">
+        <ul id="city-header"><h2></h2></ul>
+        <li class="weather-days" id="day-one-wrapper"><h4>TODAY</h4></li>
+        <li class="weather-days" id="day-two-wrapper"><h4>TOMORROW</h4></li>
+        <li class="weather-days" id="day-three-wrapper"><h4>TOMORROW2</h4></li>
+        <li class="weather-days" id="day-four-wrapper"><h4>TOMORROW4</h4>  </li>
+        <li class="weather-days" id="day-five-wrapper"><h4>TOMORROW5</h4></li>
+    </ul>
+    <div id="five-day-forecast-content">
+
+    </div>
+
+    <aside id="five-day-map"></aside>
+</main>
+
+<footer class="clear"> CREATED BY DEYAN ALEKSANDROV FOR SOFTSERVE DEMO ||
+    <a href="https://github.com/3257/soft-serve-web-project-figured-version">GITHUB REPO</a></footer>
+
+</body>
+</html>
