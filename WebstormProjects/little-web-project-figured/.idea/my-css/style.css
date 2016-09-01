@@ -31,9 +31,11 @@ body {
     font-size: 40px;
     font-weight: bold;
     padding: 20px;
+    height: 70%;
+    overflow: auto;
     width: 25%;
     color: floralwhite;
-    cursor: pointer;
+    cursor: auto;
 }
 
 #main-nav {
@@ -239,6 +241,64 @@ footer a {
     color: black;
     text-align: center;
     font-size:20px;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.infoWindowNotice a:hover{
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 1200px){
+
+    #logo{
+        display: none;
+    }
+
+    #main-nav {
+        color: #EEEEEE;
+        float: left;
+        width: 80%;
+    }
+
+    #side-nav input {
+        width: 110%;
+    }
+
+    #side-nav input:focus {
+        width: 125%;
+    }
+
+    footer {
+        display: none;
+    }
+
+    #main-wrapper {
+        position: relative;
+        left:15px;
+        margin-top: 10px;
+        margin-bottom:20px;
+        height:1600px;
+        width: 92%;
+        align-content: center;
+        text-align: center;
+    }
+
+    #map {
+       display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #weather-info {
+        display: inline-block;
+        position: relative;
+        left:-1%;
+        height: 52%;
+        width: 100%;
+    }
 }
 
 /*Five-day weather page additions*/
@@ -302,10 +362,11 @@ footer a {
 }
 
 .weather-days{
-    color: #b6a0a0;
+    color: #floralwhite;
 }
 
 .weather-days:hover{
+    font-size: 110%;
     border: none;
     color: floralwhite;
     -o-text-overflow: ellipsis;
@@ -345,14 +406,11 @@ footer a {
 margin-bottom: 50px;
 }
 
-
-
 .no-initial-display{
     display: none;
 }
 
-
-/*Full weather map addditions*/
+/*Full weather map additions*/
 
 .full-map-nav{
     position: relative;
@@ -364,10 +422,6 @@ margin-bottom: 50px;
     top:-20px;
     cursor: auto;
     color: white;
-}
-
-#main-nav ul li#full-weather-logo:hover{
-
 }
 
 #map-canvas {
