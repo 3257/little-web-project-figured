@@ -23,9 +23,9 @@
             <div id="weather-icon" class="clear"></div>
 
             <article id="weather-info-article" class="clear">
-                <div id="weather-pressure" class="transparent">Pressure: <span>{{main.pressure}}</span> hPa</div>
+                <div id="weather-pressure" class="transparent">Pressure: <span>{{numberToOneDigitDisplayFix main.pressure}}</span> hPa</div>
                 <div class="transparent">Humidity: {{main.humidity}} %</div>
-                <div id="weather-wind" class="transparent">Wind: <span>{{wind.speed}}</span> m/s</div>
+                <div id="weather-wind" class="transparent">Wind: <span>{{numberToOneDigitDisplayFix wind.speed}}</span> m/s</div>
             </article>
             <aside id="weather-info-aside" class="clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay main.temp_max}} </span> C</div>

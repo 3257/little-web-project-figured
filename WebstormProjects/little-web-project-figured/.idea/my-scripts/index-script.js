@@ -20,13 +20,6 @@ $(function () {
 
             displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
-            //fix pressure
-            numberToOneDigitDisplayFix($("#weather-pressure span"));
-
-            //fix wind
-            numberToOneDigitDisplayFix($("#weather-wind span"));
-
-
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
 
@@ -47,12 +40,6 @@ $(function () {
                 $mainWrapper.append($html);
 
                 displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
-
-                //fix pressure
-                numberToOneDigitDisplayFix($("#weather-pressure span"));
-
-                //fix wind
-                numberToOneDigitDisplayFix($("#weather-wind span"));
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
             })
@@ -78,13 +65,6 @@ $(function () {
 
                     displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
-                    //fix pressure
-                    numberToOneDigitDisplayFix($("#weather-pressure span"));
-
-                    //fix wind
-                    numberToOneDigitDisplayFix($("#weather-wind span"));
-
-
                     initializeMap(data.coord.lat, data.coord.lon, "map");
 
                 })
@@ -101,6 +81,11 @@ Handlebars.registerHelper("fixTemperatureDisplay",function(temperatureNumber){
 Handlebars.registerHelper("dateDisplayFix",function(dateInUnix){
 
     return (new Date(dateInUnix * 1000)).toUTCString().substr(0, 16)
+})
+
+Handlebars.registerHelper("numberToOneDigitDisplayFix",function(numberToBeFixed){
+
+    return Number(numberToBeFixed).toFixed(1)
 })
 
 function displayWeatherIcon($selectorID, weatherIcon) {
