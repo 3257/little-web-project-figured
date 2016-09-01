@@ -24,14 +24,8 @@ $(function () {
             //Adding city name as header
             $cityHeader.html(data.city.name);
 
-            temperatureDisplayFix($(".temperature"));
-
             //fix pressure
             numberToOneDigitDisplayFix($(".five-weather-pressure span"));
-
-
-
-
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");

@@ -26,7 +26,6 @@ $(function () {
             //fix wind
             numberToOneDigitDisplayFix($("#weather-wind span"));
 
-            dateDisplayFix($("#weather-date"), data);
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -54,8 +53,6 @@ $(function () {
 
                 //fix wind
                 numberToOneDigitDisplayFix($("#weather-wind span"));
-
-                dateDisplayFix($("#weather-date"), data);
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
             })
@@ -87,7 +84,6 @@ $(function () {
                     //fix wind
                     numberToOneDigitDisplayFix($("#weather-wind span"));
 
-                    dateDisplayFix($("#weather-date"), data);
 
                     initializeMap(data.coord.lat, data.coord.lon, "map");
 
@@ -100,7 +96,11 @@ $(function () {
 Handlebars.registerHelper("fixTemperatureDisplay",function(temperatureNumber){
 
     return (temperatureNumber / 10).toFixed(1)
+})
 
+Handlebars.registerHelper("dateDisplayFix",function(dateInUnix){
+
+    return (new Date(dateInUnix * 1000)).toUTCString().substr(0, 16)
 })
 
 function displayWeatherIcon($selectorID, weatherIcon) {
@@ -110,10 +110,10 @@ function displayWeatherIcon($selectorID, weatherIcon) {
     })
 }
 
-function dateDisplayFix($selector, data) {
-    var $dateDiv = $selector;
-    $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
-}
+// function dateDisplayFix($selector, data) {
+//     var $dateDiv = $selector;
+//     $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
+// }
 
 function numberToOneDigitDisplayFix($selector) {
     var $selected = $selector,

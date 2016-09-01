@@ -15,7 +15,7 @@
         <section id="weather-info">
 
             <header id="weather-info-header">TODAY in {{name}}</header>
-            <div id="weather-date" class="transparent"></div>
+            <div id="weather-date" class="transparent">{{dateDisplayFix dt}}</div>
             {{#weather}}
             <div id="weather-description" class="transparent">{{this.description}}</div>
             {{/weather}}
