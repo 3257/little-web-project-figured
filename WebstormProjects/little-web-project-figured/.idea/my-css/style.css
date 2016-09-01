@@ -280,14 +280,6 @@ footer a {
 
 /*Five-day weather page additions*/
 
-#five-day-map{
-    position: relative;
-    float: right;
-    height: 1000px;
-    max-height: 100%;
-    width:30%;
-}
-
 #five-day-forecast-nav {
     float: left;
     position: relative;
@@ -295,16 +287,40 @@ footer a {
     margin:0;
     padding:0;
     height: 100%;
-    overflow: auto;
+    width: 20%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
     font-size: 25px;
     cursor: pointer;
+    text-align: center;
 }
+
 #five-day-forecast-content{
     position: relative;
     float: left;
-    margin-left: 15%;
     height: 100%;
-    overflow-y: auto;
+    width: 45%;
+    margin-left: 1%;
+    text-align: center;
+
+}
+
+.five-day-weather-info{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    float: left;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+}
+
+#five-day-map{
+    position: relative;
+    float: left;
+    margin-left: 1%;
+    height:100%;
+    width: 33%;
 }
 
 .no-initial-display{
@@ -334,6 +350,8 @@ footer a {
     height: 100%;
     color: black;
 }
+
+
 
 
 

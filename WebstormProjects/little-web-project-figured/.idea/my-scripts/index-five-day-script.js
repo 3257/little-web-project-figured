@@ -8,7 +8,7 @@ $(function () {
         $html,
         $datesWrapper = $("#five-day-forecast-nav"),
         $namesWrap = $("#main-nav ul"),
-        $cityHeader = $("#city-header h2"),
+        $cityHeader = $("#weather-info-header"),
         $sideNavInput = $("#side-nav input");
 
 
@@ -18,9 +18,20 @@ $(function () {
 
         console.log(data);
 
-            $cityHeader.html("Weather in " + data.city.name);
             $html = fiveDayTemplateCompile(data);
             $fiveDayForecastContent.append($html);
+
+            //Adding city name as header
+            $cityHeader.html(data.city.name);
+
+            temperatureDisplayFix($(".temperature"));
+
+            //fix pressure
+            numberToOneDigitDisplayFix($(".five-weather-pressure span"));
+
+
+
+
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
@@ -37,7 +48,7 @@ $(function () {
             function (data) {
                 $fiveDayForecastContent.empty();
 
-                $cityHeader.html("Weather in " + data.city.name);
+                $cityHeader.html(data.city.name);
 
                 $html = fiveDayTemplateCompile(data);
                 $fiveDayForecastContent.append($html);
@@ -63,7 +74,7 @@ $(function () {
 
                     $fiveDayForecastContent.empty();
 
-                    $cityHeader.html("Weather in " + data.city.name);
+                    $cityHeader.html(data.city.name);
 
                     $html = fiveDayTemplateCompile(data);
                     $fiveDayForecastContent.append($html);

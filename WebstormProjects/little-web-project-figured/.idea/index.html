@@ -19,17 +19,17 @@
             {{#weather}}
             <div id="weather-description" class="transparent">{{this.description}}</div>
             {{/weather}}
-            <div id="current-weather-temp"><span class="temperature">{{main.temp}}</span> C</div>
+            <div id="current-weather-temp"><span class="temperature">{{fixTemperatureDisplay main.temp}}</span> C</div>
             <div id="weather-icon" class="clear"></div>
 
             <article id="weather-info-article" class="clear">
                 <div id="weather-pressure" class="transparent">Pressure: <span>{{main.pressure}}</span> hPa</div>
-                <div class="transparent">Humidity: {{main.humidity}}%</div>
+                <div class="transparent">Humidity: {{main.humidity}} %</div>
                 <div id="weather-wind" class="transparent">Wind: <span>{{wind.speed}}</span> m/s</div>
             </article>
             <aside id="weather-info-aside" class="clear">
-                <div>Max t: <span class="temperature">{{main.temp_max}} </span> C</div>
-                <div class="transparent">Min t: <span class="temperature">{{main.temp_min}}</span> C</div>
+                <div>Max t: <span class="temperature">{{fixTemperatureDisplay main.temp_max}} </span> C</div>
+                <div class="transparent">Min t: <span class="temperature">{{fixTemperatureDisplay main.temp_min}}</span> C</div>
             </aside>
         </section>
     </script>
