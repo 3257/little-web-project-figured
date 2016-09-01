@@ -251,8 +251,9 @@ footer a {
     font-size: 25px;
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1100px){
 
+    /*main page start media*/
     #logo{
         display: none;
     }
@@ -299,6 +300,9 @@ footer a {
         height: 52%;
         width: 100%;
     }
+
+    /*main page finish media*/
+
 }
 
 /*Five-day weather page additions*/
@@ -404,6 +408,67 @@ footer a {
 
 .five-weather-info-aside{
 margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1100px){
+
+    #five-day-forecast-nav{
+        height: 32%;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #five-day-weather-info-header {
+        margin-top: 2%;
+    }
+
+    #five-day-forecast-nav li:nth-of-type(3){
+        display: none;
+    }
+
+    #five-day-weather-country{
+        margin: 0;
+    }
+
+    #day-one-wrapper {
+        margin-top: 2%;
+    }
+
+    #five-day-forecast-content{
+        left:-10px;
+        height: 40%;
+        width: 100%;
+        clear: both;
+        margin-bottom:10px;
+    }
+
+    #five-day-map{
+        left:-10px;
+        height: 27%;
+        width: 100%;
+        clear: both;
+    }
+
+    .icon-container{
+        margin: 0;
+        padding: 0;
+    }
+
+    .five-weather-info-article{
+        margin: 0;
+        padding: 0;
+    }
+
+    /*full-map page*/
+    #main-nav ul li#full-weather-logo{
+        display: none;
+    }
+
+    #main-nav ul{
+        margin-left: -40px;
+    }
+
+
 }
 
 .no-initial-display{
