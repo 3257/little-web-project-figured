@@ -8,7 +8,10 @@ $(function () {
         $html,
         $datesWrapper = $("#five-day-forecast-nav"),
         $namesWrap = $("#main-nav ul"),
-        $cityHeader = $("#weather-info-header"),
+        $cityHeader = $("#five-day-weather-info-header"),
+        $cityCountry = $("#five-day-weather-country"),
+        $cityLat = $("#city-latitude"),
+        $cityLong = $("#city-longitude"),
         $sideNavInput = $("#side-nav input");
 
 
@@ -21,8 +24,11 @@ $(function () {
             $html = fiveDayTemplateCompile(data);
             $fiveDayForecastContent.append($html);
 
-            //Adding city name as header
+            //Add city name as header and other city info below
             $cityHeader.html(data.city.name);
+            $cityCountry.html(data.city.country);
+            $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
+            $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
@@ -39,7 +45,11 @@ $(function () {
             function (data) {
                 $fiveDayForecastContent.empty();
 
+                //Add city name as header and other city info below
                 $cityHeader.html(data.city.name);
+                $cityCountry.html(data.city.country);
+                $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
+                $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
                 $html = fiveDayTemplateCompile(data);
                 $fiveDayForecastContent.append($html);
@@ -65,7 +75,11 @@ $(function () {
 
                     $fiveDayForecastContent.empty();
 
+                    //Add city name as header and other city info below
                     $cityHeader.html(data.city.name);
+                    $cityCountry.html(data.city.country);
+                    $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
+                    $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
                     $html = fiveDayTemplateCompile(data);
                     $fiveDayForecastContent.append($html);
@@ -89,31 +103,35 @@ $(function () {
 
 
         if (this.id === "day-one-wrapper") {
-            $dayOne.show();
-            $dayOne.siblings().hide();
+            $dayOne.siblings().slideUp("fast");
+            $dayOne.show("slow");
+
         }
 
-        if (this.id === "day-two-wrapper") {
-            $dayTwo.show();
-            $dayTwo.siblings().hide();
+        else if (this.id === "day-two-wrapper") {
+            $dayTwo.siblings().slideUp("fast");
+            $dayTwo.show("slow");
+
         }
 
-        if (this.id === "day-three-wrapper") {
-            $dayThree.show();
-            $dayThree.siblings().hide();
+        else if (this.id === "day-three-wrapper") {
+            $dayThree.siblings().slideUp("fast");
+            $dayThree.show("slow");
+
         }
 
-        if (this.id === "day-four-wrapper") {
-            $dayFour.show();
-            $dayFour.siblings().hide();
+        else if (this.id === "day-four-wrapper") {
+            $dayFour.siblings().slideUp("fast");
+            $dayFour.show("slow");
+
         }
 
-        if (this.id === "day-five-wrapper") {
-            $dayFive.show();
-            $dayFive.siblings().hide();
+        else if (this.id === "day-five-wrapper") {
+            $dayFive.siblings().slideUp("fast");
+            $dayFive.show("slow");
+
         }
 
-        $forecastContent.show("fast");
 
     })
 

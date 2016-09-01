@@ -323,9 +323,71 @@ footer a {
     width: 33%;
 }
 
+#five-day-weather-info-header {
+
+     margin-top: 10%;
+     font-size: 50px;
+ }
+
+#five-day-weather-country{
+    font-size: 40px;
+    margin-bottom: 10%;
+}
+
+#day-one-wrapper{
+    margin-top: 25%;
+}
+
+.weather-days{
+    color: #b6a0a0;
+}
+
+.weather-days:hover{
+    border: none;
+    color: floralwhite;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.7);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.five-weather-date{
+    margin: 5%;
+    font-size: 140%;
+}
+
+.five-weather-description{
+    margin:2%;
+    font-size: 100%;
+}
+.five-weather-temp{
+    margin: 3%;
+    margin-bottom: 0;
+    font-size: 180%;
+}
+
+.five-weather-info-article{
+    padding: 5%;
+}
+
+.icon-container{
+    padding: 5%;
+    bottom: auto;
+}
+
+.five-weather-info-aside{
+    margin: 5%;
+}
+
+
+
 .no-initial-display{
     display: none;
 }
+
 
 /*Full weather map addditions*/
 
