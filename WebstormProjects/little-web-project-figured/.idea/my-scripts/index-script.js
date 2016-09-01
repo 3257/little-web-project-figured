@@ -13,12 +13,9 @@ $(function () {
         function (data) {
 
             console.log(data);
-            //compiling the html template and appending the template itself
 
             $html = templateCompile(data);
             $mainWrapper.append($html);
-
-            displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -36,10 +33,9 @@ $(function () {
             $cityName +
             "&APPID=a28f075ad9633624934634a4d49a37c5",
             function (data) {
+
                 $html = templateCompile(data);
                 $mainWrapper.append($html);
-
-                displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
             })
@@ -63,8 +59,6 @@ $(function () {
                     $html = templateCompile(data);
                     $mainWrapper.append($html);
 
-                    displayWeatherIcon($("#weather-icon"), data.weather[0].icon);
-
                     initializeMap(data.coord.lat, data.coord.lon, "map");
 
                 })
@@ -72,40 +66,29 @@ $(function () {
     })
 })
 
-
-Handlebars.registerHelper("fixTemperatureDisplay",function(temperatureNumber){
+//Handlebars helpers start
+Handlebars.registerHelper("fixTemperatureDisplay", function (temperatureNumber) {
 
     return (temperatureNumber / 10).toFixed(1)
 })
 
-Handlebars.registerHelper("dateDisplayFix",function(dateInUnix){
+Handlebars.registerHelper("dateDisplayFix", function (dateInUnix) {
 
     return (new Date(dateInUnix * 1000)).toUTCString().substr(0, 16)
 })
 
-Handlebars.registerHelper("numberToOneDigitDisplayFix",function(numberToBeFixed){
+Handlebars.registerHelper("numberToOneDigitDisplayFix", function (numberToBeFixed) {
 
     return Number(numberToBeFixed).toFixed(1)
 })
 
-function displayWeatherIcon($selectorID, weatherIcon) {
-    $selectorID.css({
-        "backgroundImage": "url(\"http://openweathermap.org/img/w/" + weatherIcon + ".png\") ",
+Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 
-    })
-}
+    return ("http://openweathermap.org/img/w/" + iconNumber + ".png")
+})
 
-// function dateDisplayFix($selector, data) {
-//     var $dateDiv = $selector;
-//     $dateDiv.html((new Date(data.dt * 1000)).toUTCString().substr(0, 16));
-// }
+//Handlebars helpers finish
 
-function numberToOneDigitDisplayFix($selector) {
-    var $selected = $selector,
-        digit = $selected.html();
-
-   $selected.html(Number(digit).toFixed(1));
-}
 
 function initializeMap(langitude, longitude, idSelector) {
     var myCenter = new google.maps.LatLng(langitude, longitude),
@@ -115,7 +98,6 @@ function initializeMap(langitude, longitude, idSelector) {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         },
         map = new google.maps.Map(document.getElementById(idSelector), mapProp),
-
 
         mapMarker = new google.maps.Marker({
             position: myCenter,
@@ -137,10 +119,10 @@ function initializeMap(langitude, longitude, idSelector) {
             '</a>' +
             '</p>'
 
-        infowindow = new google.maps.InfoWindow({
-            content: contentString
+    infowindow = new google.maps.InfoWindow({
+        content: contentString
 
-        });
+    });
 
     infowindow.open(map, mapMarker);
 

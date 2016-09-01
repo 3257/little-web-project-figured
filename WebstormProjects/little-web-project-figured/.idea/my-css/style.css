@@ -214,13 +214,13 @@ body {
 }
 
 /*weather icon*/
-#weather-icon {
+.weather-icon {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     height: 110px;
-    width: 150px;
+    width: 130px;
     position: relative;
     float: left;
     margin-top: 20px;

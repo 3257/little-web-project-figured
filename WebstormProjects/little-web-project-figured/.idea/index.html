@@ -20,7 +20,7 @@
             <div id="weather-description" class="transparent">{{this.description}}</div>
             {{/weather}}
             <div id="current-weather-temp"><span class="temperature">{{fixTemperatureDisplay main.temp}}</span> C</div>
-            <div id="weather-icon" class="clear"></div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon weather.0.icon}}" alt="weather-icon"></div>
 
             <article id="weather-info-article" class="clear">
                 <div id="weather-pressure" class="transparent">Pressure: <span>{{numberToOneDigitDisplayFix main.pressure}}</span> hPa</div>

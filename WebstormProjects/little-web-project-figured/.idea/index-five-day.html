@@ -17,11 +17,11 @@
             <div class="five-weather-description transparent">Description: {{list.0.weather.0.description}}</div>
 
             <div class="five-weather-temp"><span class="temperature">{{fixTemperatureDisplay list.0.temp.day}}</span> C</div>
-            <div class="five-weather-icon clear">Icon: {{list.0.weather.0.icon}}</div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon list.0.weather.0.icon}}" alt="weather-icon-first-day"></div>
             <article class="five-weather-info-article clear">
-                <div class="five-weather-pressure transparent">Pressure: <span>{{list.0.pressure}}</span> hPA</div>
+                <div class="five-weather-pressure transparent">Pressure: <span>{{numberToOneDigitDisplayFix list.0.pressure}}</span> hPA</div>
                 <div class="transparent">Humidity: {{list.0.humidity}} %</div>
-                <div class="five-weather-wind transparent">Wind: <span>{{list.0.speed}}</span> m/s</div>
+                <div class="five-weather-wind transparent">Wind: <span>{{numberToOneDigitDisplayFix list.0.speed}}</span> m/s</div>
             </article>
             <aside class="five-weather-info-aside clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay list.0.temp.max}}</span> C</div>
@@ -30,31 +30,32 @@
         </section>
 
         <section id="day-two" class="five-day-weather-info no-initial-display">
+
             <div class="five-weather-date transparent">{{dateDisplayFix list.1.dt}}</div>
             <div class="five-weather-description transparent">Description: {{list.1.weather.0.description}}</div>
-
             <div class="five-weather-temp"><span class="temperature">{{fixTemperatureDisplay list.1.temp.day}}</span> C</div>
-            <div class="five-weather-icon clear">Icon: {{list.1.weather.0.icon}}</div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon list.1.weather.0.icon}}" alt="weather-icon-second-day"></div>
             <article class="five-weather-info-article clear">
-                <div class="five-weather-pressure transparent">Pressure: <span>{{list.1.pressure}}</span> hPA</div>
+                <div class="five-weather-pressure transparent">Pressure: <span>{{numberToOneDigitDisplayFix list.1.pressure}}</span> hPA</div>
                 <div class="transparent">Humidity: {{list.1.humidity}} %</div>
-                <div class="five-weather-wind transparent">Wind: <span>{{list.1.speed}}</span> m/s</div>
+                <div class="five-weather-wind transparent">Wind: <span>{{numberToOneDigitDisplayFix list.1.speed}}</span> m/s</div>
             </article>
             <aside class="five-weather-info-aside clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay list.1.temp.max}}</span> C</div>
                 <div class="transparent">Min t: <span class="temperature">{{fixTemperatureDisplay list.1.temp.min}}</span> C</div>
             </aside>
+
         </section>
 
         <section id="day-three" class="five-day-weather-info no-initial-display">
             <div class="five-weather-date transparent">{{dateDisplayFix list.2.dt}}</div>
             <div class="five-weather-description transparent">Description: {{list.2.weather.0.description}}</div>
             <div class="five-weather-temp"><span class="temperature">{{fixTemperatureDisplay list.2.temp.day}}</span> C</div>
-            <div class="five-weather-icon clear">Icon: {{list.2.weather.0.icon}}</div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon list.2.weather.0.icon}}" alt="weather-icon-third-day"></div>
             <article class="five-weather-info-article clear">
-                <div class="five-weather-pressure transparent">Pressure: <span>{{list.2.pressure}}</span> hPA</div>
+                <div class="five-weather-pressure transparent">Pressure: <span>{{numberToOneDigitDisplayFix list.2.pressure}}</span> hPA</div>
                 <div class="transparent">Humidity: {{list.2.humidity}} %</div>
-                <div class="five-weather-wind transparent">Wind: <span>{{list.2.speed}}</span> m/s</div>
+                <div class="five-weather-wind transparent">Wind: <span>{{numberToOneDigitDisplayFix list.2.speed}}</span> m/s</div>
             </article>
             <aside class="five-weather-info-aside clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay list.2.temp.max}}</span> C</div>
@@ -66,11 +67,11 @@
             <div class="five-weather-date transparent">{{dateDisplayFix list.3.dt}}</div>
             <div class="five-weather-description transparent">Description: {{list.3.weather.0.description}}</div>
             <div class="five-weather-temp"><span class="temperature">{{fixTemperatureDisplay list.3.temp.day}}</span> C</div>
-            <div class="five-weather-icon clear">Icon: {{list.3.weather.0.icon}}</div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon list.3.weather.0.icon}}" alt="weather-icon-fourth-day"></div>
             <article class="five-weather-info-article clear">
-                <div class="five-weather-pressure transparent">Pressure: <span>{{list.3.pressure}}</span> hPA</div>
+                <div class="five-weather-pressure transparent">Pressure: <span>{{numberToOneDigitDisplayFix list.3.pressure}}</span> hPA</div>
                 <div class="transparent">Humidity: {{list.3.humidity}} %</div>
-                <div class="five-weather-wind transparent">Wind: <span>{{list.3.speed}}</span> m/s</div>
+                <div class="five-weather-wind transparent">Wind: <span>{{numberToOneDigitDisplayFix list.3.speed}}</span> m/s</div>
             </article>
             <aside class="five-weather-info-aside clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay list.3.temp.max}}</span> C</div>
@@ -82,11 +83,11 @@
             <div class="five-weather-date transparent">{{dateDisplayFix list.4.dt}}</div>
             <div class="five-weather-description transparent">Description: {{list.4.weather.0.description}}</div>
             <div class="five-weather-temp"><span class="temperature">{{fixTemperatureDisplay list.4.temp.day}}</span> C</div>
-            <div class="five-weather-icon clear">Icon: {{list.4.weather.0.icon}}</div>
+            <div class="clear"><img class="weather-icon" src="{{displayWeatherIcon list.4.weather.0.icon}}" alt="weather-icon-fifth-day"></div>
             <article class="five-weather-info-article clear">
-                <div class="five-weather-pressure transparent">Pressure: <span>{{list.4.pressure}}</span> hPA</div>
+                <div class="five-weather-pressure transparent">Pressure: <span>{{numberToOneDigitDisplayFix list.4.pressure}}</span> hPA</div>
                 <div class="transparent">Humidity: {{list.4.humidity}} %</div>
-                <div class="five-weather-wind transparent">Wind: <span>{{list.4.speed}}</span> m/s</div>
+                <div class="five-weather-wind transparent">Wind: <span>{{numberToOneDigitDisplayFix list.4.speed}}</span> m/s</div>
             </article>
             <aside class="five-weather-info-aside clear">
                 <div>Max t: <span class="temperature">{{fixTemperatureDisplay list.4.temp.max}}</span> C</div>
