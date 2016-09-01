@@ -19,8 +19,6 @@ $(function () {
     $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=Sofia&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
         function (data) {
 
-        console.log(data);
-
             $html = fiveDayTemplateCompile(data);
             $fiveDayForecastContent.append($html);
 
@@ -38,21 +36,21 @@ $(function () {
     $namesWrap.on("click", "li", function () {
 
         $cityName = $(this).html();
+        $fiveDayForecastContent.empty();
 
         $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
             $cityName +
             "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
             function (data) {
-                $fiveDayForecastContent.empty();
+
+                $html = fiveDayTemplateCompile(data);
+                $fiveDayForecastContent.append($html);
 
                 //Add city name as header and other city info below
                 $cityHeader.html(data.city.name);
                 $cityCountry.html(data.city.country);
                 $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                 $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
-
-                $html = fiveDayTemplateCompile(data);
-                $fiveDayForecastContent.append($html);
 
                 //initiliazing google maps simultaniuesly
                 initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
@@ -67,13 +65,15 @@ $(function () {
         if ($key === 13) {
 
             $cityValue = $(this).val();
+            $fiveDayForecastContent.empty();
 
             $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
                 $cityValue +
                 "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
                 function (data) {
 
-                    $fiveDayForecastContent.empty();
+                    $html = fiveDayTemplateCompile(data);
+                    $fiveDayForecastContent.append($html);
 
                     //Add city name as header and other city info below
                     $cityHeader.html(data.city.name);
@@ -81,12 +81,8 @@ $(function () {
                     $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                     $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
-                    $html = fiveDayTemplateCompile(data);
-                    $fiveDayForecastContent.append($html);
-
                     //initiliazing google maps simultaniuesly
                     initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
-
                 })
         }
     })

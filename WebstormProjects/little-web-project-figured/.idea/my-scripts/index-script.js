@@ -47,8 +47,8 @@ $(function () {
         var $key = event.which,
             $cityValue;
         if ($key === 13) {
-            $cityValue = $(this).val();
 
+            $cityValue = $(this).val();
             $mainWrapper.empty();
 
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
@@ -64,6 +64,7 @@ $(function () {
                 })
         }
     })
+
 })
 
 //Handlebars helpers start
