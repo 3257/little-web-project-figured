@@ -28,6 +28,8 @@ $(function () {
             $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
             $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
+            iterateOverWeatherDays();
+
             //initiliazing google maps simultaniuesly
             initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
         })
@@ -51,6 +53,8 @@ $(function () {
                 $cityCountry.html(data.city.country);
                 $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                 $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
+
+                iterateOverWeatherDays();
 
                 //initiliazing google maps simultaniuesly
                 initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
@@ -81,11 +85,71 @@ $(function () {
                     $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                     $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
+                    iterateOverWeatherDays();
+
                     //initiliazing google maps simultaniuesly
                     initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
                 })
         }
     })
+
+    function iterateOverWeatherDays(){
+
+        var $dayOne = $("#day-one"),
+            $dayTwo = $("#day-two"),
+            $dayThree = $("#day-three"),
+            $dayFour = $("#day-four"),
+            $dayFive = $("#day-five"),
+            $dayOneWrapper = $("#day-one-wrapper div"),
+            $dayTwoWrapper = $("#day-two-wrapper div"),
+            $dayThreeWrapper = $("#day-three-wrapper div"),
+            $dayFourWrapper = $("#day-four-wrapper div"),
+            $dayFiveWrapper = $("#day-five-wrapper div");
+
+
+        setTimeout(show_first,3000);
+
+        function show_fifth(){
+            $dayFive.siblings().slideUp("slow");
+            $dayFiveWrapper.addClass("button");
+            $dayFourWrapper.removeClass("button");
+            $dayFive.show("slow");
+            setTimeout(show_first,3000);
+        }
+
+        function show_fourth(){
+            $dayFour.siblings().slideUp("slow");
+            $dayFourWrapper.addClass("button");
+            $dayThreeWrapper.removeClass("button");
+            $dayFour.show("slow");
+            setTimeout(show_fifth,3000);
+        }
+
+        function show_third(){
+            $dayThree.siblings().slideUp("slow");
+            $dayThreeWrapper.addClass("button");
+            $dayTwoWrapper.removeClass("button");
+            $dayThree.show("slow");
+            setTimeout(show_fourth,3000);
+        }
+
+        function show_second(){
+            $dayTwo.siblings().slideUp("slow");
+            $dayTwoWrapper.addClass("button");
+            $dayOneWrapper.removeClass("button");
+            $dayTwo.show("slow");
+            setTimeout(show_third,3000);
+        }
+
+
+        function show_first(){
+            $dayOne.show("slow");
+            $dayOneWrapper.addClass("button");
+            $dayFiveWrapper.removeClass("button");
+            $dayOne.siblings().slideUp("slow");
+            setTimeout(show_second,3000);
+        }}
+
 
     //clickable side naviagtion changing weather content
     $datesWrapper.on("click", "li", function () {
@@ -99,31 +163,31 @@ $(function () {
 
 
         if (this.id === "day-one-wrapper") {
-            $dayOne.siblings().slideUp("fast");
+            $dayOne.siblings().slideUp("slow");
             $dayOne.show("slow");
 
         }
 
         else if (this.id === "day-two-wrapper") {
-            $dayTwo.siblings().slideUp("fast");
+            $dayTwo.siblings().slideUp("slow");
             $dayTwo.show("slow");
 
         }
 
         else if (this.id === "day-three-wrapper") {
-            $dayThree.siblings().slideUp("fast");
+            $dayThree.siblings().slideUp("slow");
             $dayThree.show("slow");
 
         }
 
         else if (this.id === "day-four-wrapper") {
-            $dayFour.siblings().slideUp("fast");
+            $dayFour.siblings().slideUp("slow");
             $dayFour.show("slow");
 
         }
 
         else if (this.id === "day-five-wrapper") {
-            $dayFive.siblings().slideUp("fast");
+            $dayFive.siblings().slideUp("slow");
             $dayFive.show("slow");
 
         }

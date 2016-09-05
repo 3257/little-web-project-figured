@@ -6,16 +6,23 @@ $(function () {
         $cityName,
         $html,
         $mainWrapper = $("#main-wrapper"),
-        $sideNavInput = $("#side-nav input");
+        $sideNavInput = $("#side-nav input"),
+        $loaderDiv = $("<div class='loader'></div>");
+
+        $mainWrapper.append($loaderDiv);
+
+
+        $mainWrapper.append($loaderDiv);
+
 
     //return data for sofia on page load
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5",
         function (data) {
 
-            console.log(data);
-
             $html = templateCompile(data);
+            $loaderDiv.remove();
             $mainWrapper.append($html);
+
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -28,6 +35,7 @@ $(function () {
 
         $cityName = $(this).html();
         $mainWrapper.empty();
+        $mainWrapper.append($loaderDiv);
 
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
             $cityName +
@@ -35,6 +43,7 @@ $(function () {
             function (data) {
 
                 $html = templateCompile(data);
+                $loaderDiv.remove();
                 $mainWrapper.append($html);
 
                 initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -50,6 +59,7 @@ $(function () {
 
             $cityValue = $(this).val();
             $mainWrapper.empty();
+            $mainWrapper.append($loaderDiv);
 
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
                 $cityValue +
@@ -57,6 +67,7 @@ $(function () {
                 function (data) {
 
                     $html = templateCompile(data);
+                    $loaderDiv.remove();
                     $mainWrapper.append($html);
 
                     initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -106,22 +117,23 @@ function initializeMap(langitude, longitude, idSelector) {
         }),
         contentString = '<p class="infoWindowNotice">' +
             '<a href="http://nadido.site88.net/index-five-day.html">' +
-            '5-DAY FORECAST' +
+            '-> 5-DAY FORECAST' +
             '</a>' +
             '</p>' +
             '<p class="infoWindowNotice">' +
             '<a href="http://nadido.site88.net/">' +
-            'CURRENT WEATHER' +
+            '-> CURRENT WEATHER' +
             '</a>' +
             '</p>' +
             '<p class="infoWindowNotice">' +
             '<a href="http://nadido.site88.net/index-full-weather-map.html">' +
-            'FULL WEATHER MAP' +
+            '-> FULL WEATHER MAP' +
             '</a>' +
             '</p>'
 
     infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        width: 100
 
     });
 
