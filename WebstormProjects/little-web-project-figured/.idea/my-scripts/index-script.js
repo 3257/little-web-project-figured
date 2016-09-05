@@ -7,11 +7,12 @@ $(function () {
         $html,
         $mainWrapper = $("#main-wrapper"),
         $sideNavInput = $("#side-nav input"),
-        $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>");
+        $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>"),
+        MISTAKE_MESSAGE = "Well:) Try again with a valid city name!!";
 
     $mainWrapper.append($loaderDiv);
 
-    // Return data for sofia on page load
+    // Return data for sofia on page load.
     promise("Sofia").done(function (data) {
 
         $html = templateCompile(data);
@@ -21,14 +22,14 @@ $(function () {
         initializeMap(data.coord.lat, data.coord.lon, "map");
     });
 
-    // Return message if promise fails
+    // Return message if promise fails.
     promise("Sofia").fail(function () {
         $loaderDiv.remove();
-        $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
+        $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
     })
 
 
-    //click-function for city names given in navigation
+    // Click-function for city names given in navigation.
     $namesWrap.on("click", "li", function () {
 
         $cityName = $(this).html();
@@ -48,12 +49,12 @@ $(function () {
         // Return message on failure
         promise($cityName).fail(function () {
             $loaderDiv.remove();
-            $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
+            $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
         })
 
     })
 
-    //using side navigation to get city name on pressing enter
+    // Using side navigation to get city name on pressing enter.
     $sideNavInput.keydown(function (event) {
         var $key = event.which,
             $cityValue;
@@ -63,21 +64,28 @@ $(function () {
             $mainWrapper.empty();
             $mainWrapper.append($loaderDiv);
 
-            // Return city data on success
-            promise($cityValue).done(function (data) {
-
-                $html = templateCompile(data);
+            // Check if value is a valid string and not a number
+            if (!$cityValue || /^\s*$/.test($cityValue)||!isNaN($cityValue)) {
                 $loaderDiv.remove();
-                $mainWrapper.append($html);
+                $mainWrapper.empty();
+                $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
+            }else{
 
-                initializeMap(data.coord.lat, data.coord.lon, "map");
-            });
+                // Return city data on success
+                promise($cityValue).done(function (data) {
 
-            // Return message on failure
-            promise($cityValue).fail(function () {
-                $loaderDiv.remove();
-                $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
-            })
+                    $html = templateCompile(data);
+                    $loaderDiv.remove();
+                    $mainWrapper.append($html);
+
+                    initializeMap(data.coord.lat, data.coord.lon, "map");
+                });
+
+                // Return message on failure
+                promise($cityValue).fail(function () {
+
+                })
+            }
         }
     })
 
@@ -108,6 +116,7 @@ Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 
 // Universal promise function to get data
 function promise(nameOfCityAsString) {
+
     return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + nameOfCityAsString + "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5");
 };
 
