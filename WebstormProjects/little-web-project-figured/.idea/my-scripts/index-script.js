@@ -83,11 +83,18 @@ $(function () {
 
                 // Return message on failure
                 promise($cityValue).fail(function () {
-
+                    $loaderDiv.remove();
+                    $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
                 })
             }
         }
     })
+
+    // promise function to get data
+    function promise(nameOfCityAsString) {
+
+        return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + nameOfCityAsString + "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5");
+    };
 
 })
 
@@ -113,12 +120,6 @@ Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 })
 
 //Handlebars helpers finish
-
-// Universal promise function to get data
-function promise(nameOfCityAsString) {
-
-    return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + nameOfCityAsString + "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5");
-};
 
 function initializeMap(langitude, longitude, idSelector) {
     var myCenter = new google.maps.LatLng(langitude, longitude),
