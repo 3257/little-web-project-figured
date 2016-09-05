@@ -12,14 +12,21 @@ $(function () {
         $cityCountry = $("#five-day-weather-country"),
         $cityLat = $("#city-latitude"),
         $cityLong = $("#city-longitude"),
-        $sideNavInput = $("#side-nav input");
+        $sideNavInput = $("#side-nav input"),
+        $mainWrapper = $("#main-wrapper"),
+        $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>");
 
+
+    $mainWrapper.append($loaderDiv);
 
     //return data for sofia on page load
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=Sofia&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=Sofia&cnt=5&mode=json&units=metric&appid=a28f075ad9633624934634a4d49a37c5",
         function (data) {
 
+        console.log(data);
+
             $html = fiveDayTemplateCompile(data);
+            $loaderDiv.remove();
             $fiveDayForecastContent.append($html);
 
             //Add city name as header and other city info below
@@ -27,6 +34,7 @@ $(function () {
             $cityCountry.html(data.city.country);
             $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
             $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
+
             iterateOverWeatherDays();
 
             //initiliazing google maps simultaniuesly
@@ -39,13 +47,15 @@ $(function () {
 
         $cityName = $(this).html();
         $fiveDayForecastContent.empty();
+        $mainWrapper.append($loaderDiv);
 
         $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
             $cityName +
-            "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
+            "&cnt=5&mode=json&units=metric&appid=a28f075ad9633624934634a4d49a37c5",
             function (data) {
 
                 $html = fiveDayTemplateCompile(data);
+                $loaderDiv.remove();
                 $fiveDayForecastContent.append($html);
 
                 //Add city name as header and other city info below
@@ -70,13 +80,15 @@ $(function () {
 
             $cityValue = $(this).val();
             $fiveDayForecastContent.empty();
+            $mainWrapper.append($loaderDiv);
 
             $.getJSON("http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
                 $cityValue +
-                "&cnt=5&mode=json&appid=a28f075ad9633624934634a4d49a37c5",
+                "&cnt=5&mode=json&units=metric&appid=a28f075ad9633624934634a4d49a37c5",
                 function (data) {
 
                     $html = fiveDayTemplateCompile(data);
+                    $loaderDiv.remove();
                     $fiveDayForecastContent.append($html);
 
                     //Add city name as header and other city info below
@@ -85,6 +97,7 @@ $(function () {
                     $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                     $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
+                    iterateOverWeatherDays();
 
                     //initiliazing google maps simultaniuesly
                     initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
@@ -92,8 +105,7 @@ $(function () {
         }
     })
 
-
-
+    // Automatic change for weather days day by day
     function iterateOverWeatherDays(){
 
         var $dayOne = $("#day-one"),
@@ -145,15 +157,15 @@ $(function () {
 
         }
 
-        $namesWrap.on("click", function () {
-            console.log($(this));
-            $(this).data("clicked",true);
-        })
-
-        if($namesWrap.data("clicked")){
-
-            return;
-        }
+        // // Break function in case any other day is clicked
+        // $namesWrap.on("click", function () {
+        //     console.log($(this));
+        //     $(this).data("clicked",true);
+        // })
+        //
+        // if($namesWrap.data("clicked")){
+        //     return;
+        // }
     };
 
 

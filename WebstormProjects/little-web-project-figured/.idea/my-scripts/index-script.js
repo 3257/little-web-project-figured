@@ -7,22 +7,18 @@ $(function () {
         $html,
         $mainWrapper = $("#main-wrapper"),
         $sideNavInput = $("#side-nav input"),
-        $loaderDiv = $("<div class='loader'></div>");
+        $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>");
 
-        $mainWrapper.append($loaderDiv);
-
-
-        $mainWrapper.append($loaderDiv);
+    $mainWrapper.append($loaderDiv);
 
 
     //return data for sofia on page load
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Sofia&APPID=a28f075ad9633624934634a4d49a37c5",
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Sofia&units=metric&APPID=a28f075ad9633624934634a4d49a37c5",
         function (data) {
 
             $html = templateCompile(data);
             $loaderDiv.remove();
             $mainWrapper.append($html);
-
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
@@ -39,7 +35,7 @@ $(function () {
 
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
             $cityName +
-            "&APPID=a28f075ad9633624934634a4d49a37c5",
+            "&APPID=a28f075ad9633624934634a4d49a37c5&units=metric",
             function (data) {
 
                 $html = templateCompile(data);
@@ -63,7 +59,7 @@ $(function () {
 
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
                 $cityValue +
-                "&APPID=a28f075ad9633624934634a4d49a37c5",
+                "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5",
                 function (data) {
 
                     $html = templateCompile(data);
@@ -81,7 +77,7 @@ $(function () {
 //Handlebars helpers start
 Handlebars.registerHelper("fixTemperatureDisplay", function (temperatureNumber) {
 
-    return (temperatureNumber / 10).toFixed(1)
+    return (temperatureNumber).toFixed(1)
 })
 
 Handlebars.registerHelper("dateDisplayFix", function (dateInUnix) {
