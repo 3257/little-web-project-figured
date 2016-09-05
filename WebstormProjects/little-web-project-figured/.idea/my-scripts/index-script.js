@@ -11,18 +11,21 @@ $(function () {
 
     $mainWrapper.append($loaderDiv);
 
+    // Return data for sofia on page load
+    promise("Sofia").done(function (data) {
 
-    //return data for sofia on page load
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Sofia&units=metric&APPID=a28f075ad9633624934634a4d49a37c5",
-        function (data) {
+        $html = templateCompile(data);
+        $loaderDiv.remove();
+        $mainWrapper.append($html);
 
-            $html = templateCompile(data);
-            $loaderDiv.remove();
-            $mainWrapper.append($html);
+        initializeMap(data.coord.lat, data.coord.lon, "map");
+    });
 
-            //initiliazing google maps simultaniuesly
-            initializeMap(data.coord.lat, data.coord.lon, "map");
-        })
+    // Return message if promise fails
+    promise("Sofia").fail(function () {
+        $loaderDiv.remove();
+        $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
+    })
 
 
     //click-function for city names given in navigation
@@ -32,17 +35,21 @@ $(function () {
         $mainWrapper.empty();
         $mainWrapper.append($loaderDiv);
 
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
-            $cityName +
-            "&APPID=a28f075ad9633624934634a4d49a37c5&units=metric",
-            function (data) {
+        // Return city data on success
+        promise($cityName).done(function (data) {
 
-                $html = templateCompile(data);
-                $loaderDiv.remove();
-                $mainWrapper.append($html);
+            $html = templateCompile(data);
+            $loaderDiv.remove();
+            $mainWrapper.append($html);
 
-                initializeMap(data.coord.lat, data.coord.lon, "map");
-            })
+            initializeMap(data.coord.lat, data.coord.lon, "map");
+        });
+
+        // Return message on failure
+        promise($cityName).fail(function () {
+            $loaderDiv.remove();
+            $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
+        })
 
     })
 
@@ -56,18 +63,21 @@ $(function () {
             $mainWrapper.empty();
             $mainWrapper.append($loaderDiv);
 
-            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" +
-                $cityValue +
-                "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5",
-                function (data) {
+            // Return city data on success
+            promise($cityValue).done(function (data) {
 
-                    $html = templateCompile(data);
-                    $loaderDiv.remove();
-                    $mainWrapper.append($html);
+                $html = templateCompile(data);
+                $loaderDiv.remove();
+                $mainWrapper.append($html);
 
-                    initializeMap(data.coord.lat, data.coord.lon, "map");
+                initializeMap(data.coord.lat, data.coord.lon, "map");
+            });
 
-                })
+            // Return message on failure
+            promise($cityValue).fail(function () {
+                $loaderDiv.remove();
+                $mainWrapper.append("<p class=\"something-wrong\">Oh no, something went wrong!</p>");
+            })
         }
     })
 
@@ -96,6 +106,10 @@ Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 
 //Handlebars helpers finish
 
+// Universal promise function to get data
+function promise(nameOfCityAsString) {
+    return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + nameOfCityAsString + "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5");
+};
 
 function initializeMap(langitude, longitude, idSelector) {
     var myCenter = new google.maps.LatLng(langitude, longitude),
