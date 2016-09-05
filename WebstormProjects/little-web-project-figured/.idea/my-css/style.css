@@ -415,6 +415,9 @@ footer a {
     padding: 10px 0px;
     text-align: center;
 }
+.weather-days div:hover {
+color: rgba(255, 255, 255,0.5)
+}
 
 /*flashing background for days when automatic iteration is on*/
 .button {
@@ -467,19 +470,6 @@ footer a {
 
 #day-one-wrapper{
     margin-top: 25%;
-}
-
-.weather-days:hover{
-    font-size: 110%;
-    border: none;
-    color: floralwhite;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.7);
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
 .five-weather-date{

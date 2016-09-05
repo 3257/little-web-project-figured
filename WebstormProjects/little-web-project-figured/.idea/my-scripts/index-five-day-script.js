@@ -27,12 +27,12 @@ $(function () {
             $cityCountry.html(data.city.country);
             $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
             $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
-
             iterateOverWeatherDays();
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
         })
+
 
     //click-function for city names given in navigation
     $namesWrap.on("click", "li", function () {
@@ -85,13 +85,14 @@ $(function () {
                     $cityLat.html(data.city.coord.lat.toFixed(2) + "°");
                     $cityLong.html(data.city.coord.lon.toFixed(2) + "°");
 
-                    iterateOverWeatherDays();
 
                     //initiliazing google maps simultaniuesly
                     initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
                 })
         }
     })
+
+
 
     function iterateOverWeatherDays(){
 
@@ -104,51 +105,56 @@ $(function () {
             $dayTwoWrapper = $("#day-two-wrapper div"),
             $dayThreeWrapper = $("#day-three-wrapper div"),
             $dayFourWrapper = $("#day-four-wrapper div"),
-            $dayFiveWrapper = $("#day-five-wrapper div");
+            $dayFiveWrapper = $("#day-five-wrapper div"),
+            $allWeatherDaysWrapped = $(".weather-days div");
 
+        setTimeout(fadeIn_first,3000);
 
-        setTimeout(show_first,3000);
+        function fadeIn_fifth(){
+            $dayFive.siblings().fadeOut("slow");
+            $dayFive.delay(800).fadeIn("slow");
+            setTimeout(fadeIn_first,4000);
 
-        function show_fifth(){
-            $dayFive.siblings().slideUp("slow");
-            $dayFiveWrapper.addClass("button");
-            $dayFourWrapper.removeClass("button");
-            $dayFive.show("slow");
-            setTimeout(show_first,3000);
         }
 
-        function show_fourth(){
-            $dayFour.siblings().slideUp("slow");
-            $dayFourWrapper.addClass("button");
-            $dayThreeWrapper.removeClass("button");
-            $dayFour.show("slow");
-            setTimeout(show_fifth,3000);
+        function fadeIn_fourth(){
+            $dayFour.siblings().fadeOut("slow");
+            $dayFour.delay(800).fadeIn("slow");
+            setTimeout(fadeIn_fifth,4000);
+
         }
 
-        function show_third(){
-            $dayThree.siblings().slideUp("slow");
-            $dayThreeWrapper.addClass("button");
-            $dayTwoWrapper.removeClass("button");
-            $dayThree.show("slow");
-            setTimeout(show_fourth,3000);
+        function fadeIn_third(){
+            $dayThree.siblings().fadeOut("slow");
+            $dayThree.delay(800).fadeIn("slow");
+            setTimeout(fadeIn_fourth,4000);
+
         }
 
-        function show_second(){
-            $dayTwo.siblings().slideUp("slow");
-            $dayTwoWrapper.addClass("button");
-            $dayOneWrapper.removeClass("button");
-            $dayTwo.show("slow");
-            setTimeout(show_third,3000);
+        function fadeIn_second(){
+            $dayTwo.siblings().fadeOut("slow");
+            $dayTwo.delay(800).fadeIn("slow");
+            setTimeout(fadeIn_third,4000);
+
         }
 
+        function fadeIn_first(){
+            $dayOne.delay(800).fadeIn("slow");
+            $dayOne.siblings().fadeOut("slow");
+            setTimeout(fadeIn_second,4000);
 
-        function show_first(){
-            $dayOne.show("slow");
-            $dayOneWrapper.addClass("button");
-            $dayFiveWrapper.removeClass("button");
-            $dayOne.siblings().slideUp("slow");
-            setTimeout(show_second,3000);
-        }}
+        }
+
+        $namesWrap.on("click", function () {
+            console.log($(this));
+            $(this).data("clicked",true);
+        })
+
+        if($namesWrap.data("clicked")){
+
+            return;
+        }
+    };
 
 
     //clickable side naviagtion changing weather content
@@ -163,32 +169,32 @@ $(function () {
 
 
         if (this.id === "day-one-wrapper") {
-            $dayOne.siblings().slideUp("slow");
-            $dayOne.show("slow");
+            $dayOne.siblings().fadeOut("slow");
+            $dayOne.delay(800).fadeIn("slow");
 
         }
 
         else if (this.id === "day-two-wrapper") {
-            $dayTwo.siblings().slideUp("slow");
-            $dayTwo.show("slow");
+            $dayTwo.siblings().fadeOut("slow");
+            $dayTwo.delay(800).fadeIn("slow");
 
         }
 
         else if (this.id === "day-three-wrapper") {
-            $dayThree.siblings().slideUp("slow");
-            $dayThree.show("slow");
+            $dayThree.siblings().fadeOut("slow");
+            $dayThree.delay(800).fadeIn("slow");
 
         }
 
         else if (this.id === "day-four-wrapper") {
-            $dayFour.siblings().slideUp("slow");
-            $dayFour.show("slow");
+            $dayFour.siblings().fadeOut("slow");
+            $dayFour.delay(800).fadeIn("slow");
 
         }
 
         else if (this.id === "day-five-wrapper") {
-            $dayFive.siblings().slideUp("slow");
-            $dayFive.show("slow");
+            $dayFive.siblings().fadeOut("slow");
+            $dayFive.delay(800).fadeIn("slow");
 
         }
 
