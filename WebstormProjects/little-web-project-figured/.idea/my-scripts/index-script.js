@@ -22,7 +22,6 @@ $(function () {
 
             //initiliazing google maps simultaniuesly
             initializeMap(data.coord.lat, data.coord.lon, "map");
-
         })
 
 
@@ -112,19 +111,25 @@ function initializeMap(langitude, longitude, idSelector) {
             map: map
         }),
         contentString = '<p class="infoWindowNotice">' +
-            '<a href="http://nadido.site88.net/index-five-day.html">' +
+            '<span class="square">' +
+            '<a class="third after" href="http://nadido.site88.net/index-five-day.html">' +
             '-> 5-DAY FORECAST' +
             '</a>' +
+            '</span>' +
             '</p>' +
             '<p class="infoWindowNotice">' +
-            '<a href="http://nadido.site88.net/">' +
+            '<span class="square">' +
+            '<a lass="third after" href="http://nadido.site88.net/">' +
             '-> CURRENT WEATHER' +
             '</a>' +
+            '</span>' +
             '</p>' +
             '<p class="infoWindowNotice">' +
-            '<a href="http://nadido.site88.net/index-full-weather-map.html">' +
+            '<span class="square">' +
+            '<a lass="third after" href="http://nadido.site88.net/index-full-weather-map.html">' +
             '-> FULL WEATHER MAP' +
             '</a>' +
+            '</span>' +
             '</p>'
 
     infowindow = new google.maps.InfoWindow({
