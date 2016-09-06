@@ -4,19 +4,23 @@
     font-family: "Kimberley";
     src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype");
 }
+html {
+    height: 100%;
+    overflow: hidden;
+}
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    height: 100%;
     font-family: "Kimberley";
-    max-width: 100%;
-    background: url(http://img0.gtsstatic.com/wallpapers/bfc750c29f236e96a7c967855de37b49_large.jpeg) no-repeat center center fixed;
-    overflow-x: hidden;
+    overflow: hidden;
     text-shadow: 0 5px 2px #000;
 }
 
 #main-header {
-    z-index: 1000;
+    z-index: 5;
     position: fixed;
     top: 0;
     height: 90px;
@@ -117,6 +121,10 @@ footer a {
     overflow-x: hidden;
 }
 
+html {
+    height: 100%;
+}
+
 h1 {
     font-size: 250%
 }
@@ -192,14 +200,13 @@ p {
 
 }
 
-/*http://screenshots.en.sftcdn.net/en/scrn/87000/87817/autumn-wallpaper-ii-2.jpg*/
 #title {
     background-image: url("http://cdn.wallpapersafari.com/4/58/txz0bM.jpg");
     background-attachment: fixed;
 }
 
 #slide1:before {
-    background-image: url("http://screenshots.en.sftcdn.net/en/scrn/87000/87817/autumn-wallpaper-ii-2.jpg");
+    background-image: url("http://wallpapercave.com/wp/N2dKxTt.jpg");
     transform: translateZ(-1px) scale(2);
     z-index:-1;
 }

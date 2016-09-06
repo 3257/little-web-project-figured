@@ -3,11 +3,13 @@ $(function () {
     var $mainHeader = $('#main-header'),
         $footer = $(".footer");
 
-    // Change main header background on scroll down and scroll up
-    $(window).scroll(function () {
+    console.log("hey");
+
+    // Change main header background on scroll down and scroll up, function attached to container
+    $("#contacts-wrapper-two").scroll(function () {
         var $scrollDistanceFromTop = $(this).scrollTop();
 
-        console.log($scrollDistanceFromTop);
+        console.log("scroll");
 
         if ($scrollDistanceFromTop >= 200) {
 
