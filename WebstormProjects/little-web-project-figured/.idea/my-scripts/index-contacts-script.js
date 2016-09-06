@@ -1,6 +1,6 @@
 $(function () {
 
-    var $mainHeader = $('#main-header'),
+    var $mainHeader = $("#main-header"),
         $footer = $(".footer");
 
     console.log("hey");
@@ -27,10 +27,37 @@ $(function () {
         if ($scrollDistanceFromTop >= 3065) {
 
             $footer.addClass("footer-on-scroll");
+            $("#back-to-top").addClass("footer-on-scroll");
+
         } else {
             $footer.removeClass("footer-on-scroll");
+            $("#back-to-top").removeClass("footer-on-scroll");
+
         }
     });
+
+    // Go back to the top.
+    if ($("#back-to-top").length) {
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = $("#contacts-wrapper-two").scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $("#back-to-top").addClass("show");
+                } else {
+                    $("#back-to-top").removeClass("show");
+                }
+            };
+        backToTop();
+        $("#contacts-wrapper-two").on("scroll", function () {
+            backToTop();
+        });
+        $("#back-to-top").on("click", function (e) {
+            e.preventDefault();
+            $("#contacts-wrapper-two").animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
 
     var myCenter = new google.maps.LatLng(42.7, 23.32),
         mapProp = {

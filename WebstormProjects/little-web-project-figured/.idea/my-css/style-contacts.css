@@ -18,6 +18,9 @@ body {
     overflow: hidden;
     text-shadow: 0 5px 2px #000;
 }
+a{
+    color: floralwhite;
+}
 
 #main-header {
     z-index: 5;
@@ -221,5 +224,27 @@ p {
     transform: translateZ(-1px) scale(2);
     z-index:-1;
 }
+
+/*Back to top additions*/
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    z-index: 9999;
+    cursor: pointer;
+    border: 0;
+    font-size: 30px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+#back-to-top:hover {
+    /*implement something cool*/
+
+}
+#back-to-top.show {
+    opacity: 1;
+}
+/*Back to top additions*/
 
 /*Contancts page additions*/
