@@ -1,0 +1,218 @@
+/*Contacts page additions*/
+
+@font-face {
+    font-family: "Kimberley";
+    src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype");
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Kimberley";
+    max-width: 100%;
+    background: url(http://img0.gtsstatic.com/wallpapers/bfc750c29f236e96a7c967855de37b49_large.jpeg) no-repeat center center fixed;
+    overflow-x: hidden;
+    text-shadow: 0 5px 2px #000;
+}
+
+#main-header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+
+}
+
+.clear {
+    clear: both;
+}
+
+#logo {
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+    height: 70%;
+    overflow: auto;
+    width: 25%;
+    color: floralwhite;
+    cursor: auto;
+
+}
+
+#main-nav {
+    color: #EEEEEE;
+    float: left;
+    width: 55%;
+}
+
+#main-nav ul {
+    list-style: none;
+    position: relative;
+}
+
+#main-nav ul li {
+    position: relative;
+    display: inline-block;
+    float: left;
+    font-size: 25px;
+    font-weight: 900;
+    padding: 29px;
+    top: -15px;
+    cursor: pointer;
+    color: floralwhite;
+}
+
+#main-nav ul li:hover {
+
+    border: none;
+    color: rgba(255, 255, 255);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.7);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: floralwhite;
+    -webkit-transition: color  0.5s ease;
+    -moz-transition: color  0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-on-scroll{
+    text-shadow: none;
+    color: #000;
+}
+
+
+#contacts-wrapper-one {
+    height: 100%;
+    overflow: hidden;
+}
+
+#contacts-wrapper-two {
+    margin:0;
+    padding:0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 250%
+}
+
+p {
+    font-size: 140%;
+    line-height: 150%;
+    color: #333;
+}
+
+.slide {
+    position: relative;
+    padding: 25vh 10%;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+    transform-style: inherit;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 320px;
+    height: 240px;
+    transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.image:last-of-type {
+    transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+
+.title {
+    width: 50%;
+    padding: 5%;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide:nth-child(2n) .title {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.slide, .slide:before {
+    background: 50% 50% / cover;
+}
+
+.header {
+    text-align: center;
+    font-size: 175%;
+    color: #fff;
+
+}
+
+/*http://screenshots.en.sftcdn.net/en/scrn/87000/87817/autumn-wallpaper-ii-2.jpg*/
+#title {
+    background-image: url("http://cdn.wallpapersafari.com/4/58/txz0bM.jpg");
+    background-attachment: fixed;
+}
+
+#slide1:before {
+    background-image: url("http://screenshots.en.sftcdn.net/en/scrn/87000/87817/autumn-wallpaper-ii-2.jpg");
+    transform: translateZ(-1px) scale(2);
+    z-index:-1;
+}
+
+#slide2 {
+    background-image: url("http://feelgrafix.com/data_images/out/17/917824-weather-wallpaper.jpg");
+    background-attachment: fixed;
+}
+
+#slide3:before {
+    background-image: url("https://hdwallpapers360.files.wordpress.com/2013/08/110d9-bad_weather_beach_1600x1200.jpg");
+    transform: translateZ(-1px) scale(2);
+    z-index:-1;
+}
+
+/*Contancts page additions*/
