@@ -28,6 +28,10 @@ a{
     top: 0;
     height: 90px;
     background: rgba(0, 0, 0, 0.5);
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color  0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
     width: 100%;
 
 }
@@ -175,6 +179,7 @@ p {
 }
 
 .title {
+    text-shadow: none;
     width: 50%;
     padding: 5%;
     border-radius: 5px;
@@ -235,7 +240,10 @@ p {
     border: 0;
     font-size: 30px;
     text-decoration: none;
-    transition: opacity 0.2s ease-out;
+    -webkit-transition: color  0.5s ease;
+    -moz-transition: color  0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
     opacity: 0;
 }
 #back-to-top:hover {
@@ -244,6 +252,18 @@ p {
 }
 #back-to-top.show {
     opacity: 1;
+}
+
+#contacts-map{
+    text-shadow: none;
+}
+.gm-style-iw {
+
+    text-align: center;
+}
+
+.infoWindowNotice{
+    text-shadow: none;
 }
 /*Back to top additions*/
 

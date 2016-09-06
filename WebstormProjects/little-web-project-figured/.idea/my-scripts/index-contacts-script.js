@@ -3,13 +3,9 @@ $(function () {
     var $mainHeader = $("#main-header"),
         $footer = $(".footer");
 
-    console.log("hey");
-
     // Change main header background on scroll down and scroll up, function attached to container
     $("#contacts-wrapper-two").scroll(function () {
         var $scrollDistanceFromTop = $(this).scrollTop();
-
-        console.log("scroll");
 
         if ($scrollDistanceFromTop >= 200) {
 
@@ -65,13 +61,22 @@ $(function () {
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
+
         },
         map = new google.maps.Map(document.getElementById("contacts-map"), mapProp),
 
         mapMarker = new google.maps.Marker({
             position: myCenter,
-            map: map
+            map: map,
+        }),
+        contentString = '<p id="hook">Hello World!</p>',
+
+        infowindow = new google.maps.InfoWindow({
+            content: contentString,
+
         });
+
+    infowindow.open(map, mapMarker);
 
 });
 
