@@ -18,10 +18,10 @@ body {
     height: 100%;
     width: 100%;
     font-family: "Kimberley";
+    color: floralwhite;
     overflow: hidden;
     text-shadow: 0 5px 2px #000;
 }
-
 a {
     color: floralwhite;
 }
@@ -142,7 +142,6 @@ h1 {
 p {
     font-size: 140%;
     line-height: 150%;
-    color: #333;
 }
 
 .slide {
@@ -150,8 +149,9 @@ p {
     padding: 25vh 10%;
     min-height: 100vh;
     width: 100vw;
+    min-width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 1);
     transform-style: inherit;
 }
 
@@ -186,7 +186,7 @@ p {
     width: 50%;
     padding: 5%;
     border-radius: 5px;
-    background: rgba(240, 230, 220, .7);
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
 
@@ -207,7 +207,7 @@ p {
 .header {
     text-align: center;
     font-size: 175%;
-    color: #fff;
+    color: floralwhite;
 
 }
 
@@ -217,13 +217,13 @@ p {
 }
 
 #slide1:before {
-    background-image: url("http://wallpapercave.com/wp/N2dKxTt.jpg");
+    background-image: url("http://marketingland.com/wp-content/ml-loads/2014/12/weather-temperature-thermometer-hot-heat-ss-1920.jpg");
     transform: translateZ(-1px) scale(2);
     z-index: -1;
 }
 
 #slide2 {
-    background-image: url("http://feelgrafix.com/data_images/out/17/917824-weather-wallpaper.jpg");
+    background-image: url("http://images5.fanpop.com/image/photos/30900000/supercell-weather-30965292-1440-900.jpg");
     background-attachment: fixed;
 }
 
@@ -232,6 +232,13 @@ p {
     transform: translateZ(-1px) scale(2);
     z-index: -1;
 }
+
+/*#contacts-map{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*transform: translateZ(-1px) scale(3);*/
+    /*z-index: -1;*/
+/*}*/
 
 #contacts-map div{
     text-shadow: none;
@@ -278,5 +285,51 @@ p {
 }
 
 /*Back to top additions*/
+
+/*Contact form additions*/
+#page-wrap {
+    width: 660px;
+    padding: 10px;
+    margin: 10px auto;
+    min-height: 500px;
+    height: auto !important;
+    height: 500px;
+}
+
+#contact-area {
+    width: 600px;
+    margin-top: 5px;
+}
+
+#contact-area input, #contact-area textarea {
+    padding: 5px;
+    width: 471px;
+    font-size: 1.4em;
+    margin: 0px 0px 10px 0px;
+    border: 2px solid #ccc;
+}
+
+#contact-area textarea {
+    height: 90px;
+}
+
+#contact-area textarea:focus, #contact-area input:focus {
+    border: 2px solid #900;
+}
+
+#contact-area input.submit-button {
+    width: 100px;
+    float: right;
+}
+
+label {
+    float: left;
+    text-align: right;
+    margin-right: 15px;
+    width: 100px;
+    padding-top: 5px;
+    font-size: 1.4em;
+}
+/*Contact form additions*/
 
 /*Contancts page additions*/
