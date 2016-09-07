@@ -20,7 +20,7 @@ $(function () {
             });
         }
 
-        if ($scrollDistanceFromTop >= 3065) {
+        if ($scrollDistanceFromTop >= 3465) {
 
             $footer.addClass("footer-on-scroll");
             $("#back-to-top").addClass("footer-on-scroll");
@@ -40,7 +40,7 @@ $(function () {
                 if (scrollTop > scrollTrigger) {
                     $("#back-to-top").addClass("show");
                 } else {
-                    $("#back-to-top").removeClass("show");
+                    $("#back-to-top").removeClass(" show");
                 }
             };
         backToTop();
@@ -55,28 +55,19 @@ $(function () {
         });
     }
 
-    var myCenter = new google.maps.LatLng(42.7, 23.32),
+    var myCenter = new google.maps.LatLng(42.650105, 23.363869),
         mapProp = {
             center: myCenter,
-            zoom: 12,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
-
         },
         map = new google.maps.Map(document.getElementById("contacts-map"), mapProp),
 
         mapMarker = new google.maps.Marker({
             position: myCenter,
-            map: map,
-        }),
-        contentString = '<p id="hook">Hello World!</p>',
-
-        infowindow = new google.maps.InfoWindow({
-            content: contentString,
-
+            map: map
         });
-
-    infowindow.open(map, mapMarker);
 
 });
 

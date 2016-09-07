@@ -4,8 +4,10 @@
     font-family: "Kimberley";
     src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype");
 }
+
 html {
     height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -14,11 +16,13 @@ body {
     padding: 0;
     perspective: 1px;
     height: 100%;
+    width: 100%;
     font-family: "Kimberley";
     overflow: hidden;
     text-shadow: 0 5px 2px #000;
 }
-a{
+
+a {
     color: floralwhite;
 }
 
@@ -29,7 +33,7 @@ a{
     height: 90px;
     background: rgba(0, 0, 0, 0.5);
     -webkit-transition: background-color 0.5s ease;
-    -moz-transition: background-color  0.5s ease;
+    -moz-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
     width: 100%;
@@ -97,8 +101,8 @@ footer {
     font-size: 20px;
     text-align: center;
     color: floralwhite;
-    -webkit-transition: color  0.5s ease;
-    -moz-transition: color  0.5s ease;
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
     -o-transition: color 0.5s ease;
     transition: color 0.5s ease;
 }
@@ -108,11 +112,10 @@ footer a {
     text-decoration: none;
 }
 
-.footer-on-scroll{
+.footer-on-scroll {
     text-shadow: none;
     color: #000;
 }
-
 
 #contacts-wrapper-one {
     height: 100%;
@@ -120,8 +123,8 @@ footer a {
 }
 
 #contacts-wrapper-two {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     perspective: 1px;
     transform-style: preserve-3d;
     height: 100%;
@@ -161,7 +164,7 @@ p {
     transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
     padding: 10px;
     border-radius: 5px;
-    background: rgba(240,230,220, .7);
+    background: rgba(240, 230, 220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
 
@@ -174,8 +177,8 @@ p {
     position: absolute;
     top: 0;
     bottom: 0;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
 }
 
 .title {
@@ -183,7 +186,7 @@ p {
     width: 50%;
     padding: 5%;
     border-radius: 5px;
-    background: rgba(240,230,220, .7);
+    background: rgba(240, 230, 220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
 
@@ -216,7 +219,7 @@ p {
 #slide1:before {
     background-image: url("http://wallpapercave.com/wp/N2dKxTt.jpg");
     transform: translateZ(-1px) scale(2);
-    z-index:-1;
+    z-index: -1;
 }
 
 #slide2 {
@@ -227,7 +230,25 @@ p {
 #slide3:before {
     background-image: url("https://hdwallpapers360.files.wordpress.com/2013/08/110d9-bad_weather_beach_1600x1200.jpg");
     transform: translateZ(-1px) scale(2);
-    z-index:-1;
+    z-index: -1;
+}
+
+#contacts-map div{
+    text-shadow: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+}
+
+.gm-bundled-control{
+    display: none;
+}
+.gm-style-mtc{
+    display: none;
+}
+.gm-style-cc{
+    display: none;
 }
 
 /*Back to top additions*/
@@ -240,31 +261,22 @@ p {
     border: 0;
     font-size: 30px;
     text-decoration: none;
-    -webkit-transition: color  0.5s ease;
-    -moz-transition: color  0.5s ease;
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
     -o-transition: color 0.5s ease;
     transition: color 0.5s ease;
     opacity: 0;
 }
+
 #back-to-top:hover {
     /*implement something cool*/
 
 }
+
 #back-to-top.show {
     opacity: 1;
 }
 
-#contacts-map{
-    text-shadow: none;
-}
-.gm-style-iw {
-
-    text-align: center;
-}
-
-.infoWindowNotice{
-    text-shadow: none;
-}
 /*Back to top additions*/
 
 /*Contancts page additions*/
