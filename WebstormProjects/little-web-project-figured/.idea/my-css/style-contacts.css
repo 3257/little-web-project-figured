@@ -27,7 +27,7 @@ a {
 }
 
 #main-header {
-    z-index: 5;
+    z-index: 1;
     position: fixed;
     top: 0;
     height: 90px;
@@ -182,63 +182,31 @@ p {
 }
 
 .title {
+    z-index:2;
     text-shadow: none;
-    width: 50%;
-    padding: 5%;
+    width: 45%;
+    height: 500px;
+    padding: 2%;
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
-}
-
-.slide:nth-child(2n) .title {
-    margin-left: 0;
-    margin-right: auto;
-}
-
-.slide:nth-child(2n+1) .title {
-    margin-left: auto;
-    margin-right: 0;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .9);
 }
 
 .slide, .slide:before {
     background: 50% 50% / cover;
 }
 
-.header {
-    text-align: center;
-    font-size: 175%;
-    color: floralwhite;
-
-}
-
-#title {
-    background-image: url("http://cdn.wallpapersafari.com/4/58/txz0bM.jpg");
-    background-attachment: fixed;
-}
-
-#slide1:before {
-    background-image: url("http://marketingland.com/wp-content/ml-loads/2014/12/weather-temperature-thermometer-hot-heat-ss-1920.jpg");
-    transform: translateZ(-1px) scale(2);
-    z-index: -1;
-}
-
-#slide2 {
-    background-image: url("http://images5.fanpop.com/image/photos/30900000/supercell-weather-30965292-1440-900.jpg");
-    background-attachment: fixed;
-}
+/*.header {*/
+    /*text-align: center;*/
+    /*font-size: 175%;*/
+    /*color: floralwhite;*/
+/*}*/
 
 #slide3:before {
     background-image: url("https://hdwallpapers360.files.wordpress.com/2013/08/110d9-bad_weather_beach_1600x1200.jpg");
     transform: translateZ(-1px) scale(2);
     z-index: -1;
 }
-
-/*#contacts-map{*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*transform: translateZ(-1px) scale(3);*/
-    /*z-index: -1;*/
-/*}*/
 
 #contacts-map div{
     text-shadow: none;
@@ -277,7 +245,6 @@ p {
 
 #back-to-top:hover {
     /*implement something cool*/
-
 }
 
 #back-to-top.show {
@@ -288,25 +255,29 @@ p {
 
 /*Contact form additions*/
 #page-wrap {
-    width: 660px;
+    width: 100%;
     padding: 10px;
     margin: 10px auto;
     min-height: 500px;
-    height: auto !important;
     height: 500px;
 }
 
 #contact-area {
-    width: 600px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
     margin-top: 5px;
 }
 
 #contact-area input, #contact-area textarea {
+
+    position: relative;
     padding: 5px;
-    width: 471px;
+    width: 70%;
     font-size: 1.4em;
     margin: 0px 0px 10px 0px;
-    border: 2px solid #ccc;
+    border: 4px solid #ccc;
+    border-radius: 5px;
 }
 
 #contact-area textarea {
@@ -314,11 +285,12 @@ p {
 }
 
 #contact-area textarea:focus, #contact-area input:focus {
-    border: 2px solid #900;
+    border: 4px solid #FF8C00;
+    border-radius: 5px;
 }
 
 #contact-area input.submit-button {
-    width: 100px;
+    width: 20%;
     float: right;
 }
 

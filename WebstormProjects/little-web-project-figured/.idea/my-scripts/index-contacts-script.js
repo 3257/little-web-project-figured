@@ -20,7 +20,7 @@ $(function () {
             });
         }
 
-        if ($scrollDistanceFromTop >= 3465) {
+        if ($scrollDistanceFromTop >= 140) {
 
             $footer.addClass("footer-on-scroll");
             $("#back-to-top").addClass("footer-on-scroll");
