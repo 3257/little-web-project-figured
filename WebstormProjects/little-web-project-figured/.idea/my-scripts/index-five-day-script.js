@@ -154,7 +154,7 @@ $(function () {
             "&cnt=5&mode=json&units=metric&appid=a28f075ad9633624934634a4d49a37c5");
     };
 
-    // Clickable side navigation for the five-day info returned changing which day is shown.
+    // Clickable side navigation for the five-day info returned changing which date is shown.
     $fiveDatesWrapper.on("click", "li", function () {
 
         var $dayOne = $("#day-one"),

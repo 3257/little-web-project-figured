@@ -10,15 +10,18 @@ $(function () {
     function initialize() {
         var mapOptions = {
             zoom: 8,
-            // Bulgaria coordinates
+            // Bulgaria coordinates.
             center: new google.maps.LatLng(43, 25),
             mapTypeId: google.maps.MapTypeId.TERRAIN
         };
+
         map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-        // Add interaction listeners to make weather requests
+
+        // Add interaction listeners to make weather requests.
         google.maps.event.addListener(map, "idle", checkIfDataRequested);
-        // Sets up and populates the info window with details
+
+        // Sets up and populates the info window with details.
         map.data.addListener("click", function (event) {
             infowindow.setContent(
                 "<img src=" + event.feature.getProperty("icon") + ">"
@@ -26,6 +29,7 @@ $(function () {
                 + "<br />" + event.feature.getProperty("temperature") + "&deg;C"
                 + "<br />" + event.feature.getProperty("weather")
             );
+
             infowindow.setOptions({
                 position: {
                     lat: event.latLng.lat(),
@@ -36,26 +40,30 @@ $(function () {
                     height: -15
                 }
             });
+
             infowindow.open(map);
         });
     }
 
     var checkIfDataRequested = function () {
-        // Stop extra requests being sent
+        // Stop extra requests being sent.
         while (gettingData === true) {
             request.abort();
             gettingData = false;
         }
+
         getCoords();
     };
-// Get the coordinates from the Map bounds
+
+// Get the coordinates from the Map bounds.
     var getCoords = function () {
         var bounds = map.getBounds();
         var NE = bounds.getNorthEast();
         var SW = bounds.getSouthWest();
         getWeather(NE.lat(), NE.lng(), SW.lat(), SW.lng());
     };
-// Make the weather request
+
+// Make the weather request.
     var getWeather = function (northLat, eastLng, southLat, westLng) {
         gettingData = true;
         var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
@@ -69,7 +77,8 @@ $(function () {
         request.open("get", requestString, true);
         request.send();
     };
-// Take the JSON results and proccess them
+
+// Take the JSON results and proccess them.
     var proccessResults = function () {
         console.log(this);
         var results = JSON.parse(this.responseText);
@@ -81,8 +90,10 @@ $(function () {
             drawIcons(geoJSON);
         }
     };
+
     var infowindow = new google.maps.InfoWindow();
-// For each result that comes back, convert the data to geoJSON
+
+// For each result that comes back, convert the data to geoJSON.
     var jsonToGeoJson = function (weatherItem) {
         var feature = {
             type: "Feature",
@@ -106,7 +117,8 @@ $(function () {
                 coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
             }
         };
-        // Set the custom marker icon
+
+        // Set the custom marker icon.
         map.data.setStyle(function (feature) {
             return {
                 icon: {
@@ -115,16 +127,20 @@ $(function () {
                 }
             };
         });
-        // returns object
+
+        // Returns object.
         return feature;
     };
-// Add the markers to the map
+
+// Add the markers to the map.
     var drawIcons = function (weather) {
         map.data.addGeoJson(geoJSON);
-        // Set the flag to finished
+
+        // Set the flag to finished.
         gettingData = false;
     };
-// Clear data layer and geoJSON
+
+// Clear data layer and geoJSON.
     var resetData = function () {
         geoJSON = {
             type: "FeatureCollection",
@@ -134,5 +150,6 @@ $(function () {
             map.data.remove(feature);
         });
     };
+
     initialize()
 })
