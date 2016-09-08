@@ -129,6 +129,16 @@ body {
 
 /*loader effect*/
 
+.something-wrong{
+    position: relative;
+    left: 20%;
+    top:40%;
+    z-index: 1000;
+    height: 100px;
+    width: 67%;
+    font-size: 35px;
+}
+
 #main-nav ul li a {
     text-decoration: none;
     color: white;

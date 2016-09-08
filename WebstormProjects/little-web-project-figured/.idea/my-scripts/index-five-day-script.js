@@ -22,7 +22,7 @@ $(function () {
         $sideNavInput = $("#side-nav input"),
         $mainPageWrapper = $("#main-wrapper"),
         $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>"),
-        MISTAKE_MESSAGE = "Well:) Try again with a valid city name!!",
+        MISTAKE_MESSAGE = "SORRY! YOU BROKE THE INTERNET! TRY WITH VALID CITY NAME NOW :-)",
         TRANSPARENT_COLOR = "rgba(255, 255, 255, .6)",
         FLORALWHITE_COLOR = "floralwhite";
 
