@@ -4,10 +4,10 @@ $(function () {
         fiveDayTemplateCompile = Handlebars.compile($fiveDaySourceTemplate),
         $fiveDayForecastContent = $("#five-day-forecast-content"),
         $fiveDaySideNavInput = $("#side-nav input"),
-        $cityNameData,
-        $htmlFromTemplate,
-        $fiveDatesWrapper = $("#five-day-forecast-nav"),
+        $cityName,
+        $html,
         $cityNamesFromMainNavigation = $("#main-nav ul"),
+        $fiveDatesWrapper = $("#five-day-forecast-nav"),
         $cityHeaderInResult = $("#five-day-weather-info-header"),
         $cityCountryInResult = $("#five-day-weather-country"),
         $cityLatInResult = $("#city-latitude"),
@@ -31,9 +31,9 @@ $(function () {
     // Return data for sofia on page load.
     promiseFiveDays("Sofia").done(function (data) {
 
-        $htmlFromTemplate = fiveDayTemplateCompile(data);
+        $html = fiveDayTemplateCompile(data);
         $loaderDiv.remove();
-        $fiveDayForecastContent.append($htmlFromTemplate);
+        $fiveDayForecastContent.append($html);
 
         // Add city name as header and other city info below.
         $cityHeaderInResult.html(data.city.name);
@@ -63,16 +63,16 @@ $(function () {
     // Click-function for city names returned from main navigation.
     $cityNamesFromMainNavigation.on("click", "li", function () {
 
-        $cityNameData = $(this).html();
+        $cityName = $(this).html();
         $fiveDayForecastContent.empty();
         $mainPageWrapper.append($loaderDiv);
 
         // Return city data on success.
-        promiseFiveDays($cityNameData).done(function (data) {
+        promiseFiveDays($cityName).done(function (data) {
 
-            $htmlFromTemplate = fiveDayTemplateCompile(data);
+            $html = fiveDayTemplateCompile(data);
             $loaderDiv.remove();
-            $fiveDayForecastContent.append($htmlFromTemplate);
+            $fiveDayForecastContent.append($html);
 
             // Add city name as header and other city info below.
             $cityHeaderInResult.html(data.city.name);
@@ -117,9 +117,9 @@ $(function () {
                 // Return city data on success.
                 promiseFiveDays($cityValue).done(function (data) {
 
-                    $htmlFromTemplate = fiveDayTemplateCompile(data);
+                    $html = fiveDayTemplateCompile(data);
                     $loaderDiv.remove();
-                    $fiveDayForecastContent.append($htmlFromTemplate);
+                    $fiveDayForecastContent.append($html);
 
                     //Add city name as header and other city info below.
                     $cityHeaderInResult.html(data.city.name);

@@ -1,14 +1,14 @@
 $(function () {
 
-    var $namesWrap = $("#main-nav ul"),
-        sourceTemplate = $("#main-template").html(),
-        templateCompile = Handlebars.compile(sourceTemplate),
+    var $cityNamesMainNav = $("#main-nav ul"),
+        htmlSourceTemplate = $("#main-template").html(),
+        templateCompile = Handlebars.compile(htmlSourceTemplate),
         $cityName,
         $html,
         $mainWrapper = $("#main-wrapper"),
         $sideNavInput = $("#side-nav input"),
         $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>"),
-        MISTAKE_MESSAGE = "Well:) Try again with a valid city name!!";
+        MISTAKE_MESSAGE = "SORRY! YOU BROKE THE INTERNET! TRY WITH VALID CITY NAME NOW :-)";
 
     $mainWrapper.append($loaderDiv);
 
@@ -25,18 +25,18 @@ $(function () {
     // Return message if promise fails.
     promise("Sofia").fail(function () {
         $loaderDiv.remove();
-        $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
+        $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
     })
 
 
-    // Click-function for city names given in navigation.
-    $namesWrap.on("click", "li", function () {
+    // Click-function for city names returned from navigation.
+    $cityNamesMainNav.on("click", "li", function () {
 
         $cityName = $(this).html();
         $mainWrapper.empty();
         $mainWrapper.append($loaderDiv);
 
-        // Return city data on success
+        // Return city data on success.
         promise($cityName).done(function (data) {
 
             $html = templateCompile(data);
@@ -46,15 +46,15 @@ $(function () {
             initializeMap(data.coord.lat, data.coord.lon, "map");
         });
 
-        // Return message on failure
+        // Return message on failure.
         promise($cityName).fail(function () {
             $loaderDiv.remove();
-            $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
+            $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
         })
 
     })
 
-    // Using side navigation to get city name on pressing enter.
+    // Input function for city names returned.
     $sideNavInput.keydown(function (event) {
         var $key = event.which,
             $cityValue;
@@ -64,14 +64,14 @@ $(function () {
             $mainWrapper.empty();
             $mainWrapper.append($loaderDiv);
 
-            // Check if value is a valid string and not a number
-            if (!$cityValue || /^\s*$/.test($cityValue)||!isNaN($cityValue)) {
+            // Check if value is a valid string and not a number.
+            if (!$cityValue || /^\s*$/.test($cityValue) || !isNaN($cityValue)) {
                 $loaderDiv.remove();
                 $mainWrapper.empty();
-                $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
-            }else{
+                $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
+            } else {
 
-                // Return city data on success
+                // Return city data on success.
                 promise($cityValue).done(function (data) {
 
                     $html = templateCompile(data);
@@ -81,16 +81,16 @@ $(function () {
                     initializeMap(data.coord.lat, data.coord.lon, "map");
                 });
 
-                // Return message on failure
+                // Return message on failure.
                 promise($cityValue).fail(function () {
                     $loaderDiv.remove();
-                    $mainWrapper.append("<p class=\"something-wrong\">"+MISTAKE_MESSAGE+"</p>");
+                    $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
                 })
             }
         }
     })
 
-    // promise function to get data
+    // Promise function to get data.
     function promise(nameOfCityAsString) {
 
         return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + nameOfCityAsString + "&units=metric&APPID=a28f075ad9633624934634a4d49a37c5");
@@ -98,7 +98,7 @@ $(function () {
 
 })
 
-//Handlebars helpers start
+//Handlebars helpers started.
 Handlebars.registerHelper("fixTemperatureDisplay", function (temperatureNumber) {
 
     return (temperatureNumber).toFixed(1)
@@ -118,8 +118,7 @@ Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 
     return ("http://openweathermap.org/img/w/" + iconNumber + ".png")
 })
-
-//Handlebars helpers finish
+//Handlebars helpers finished.
 
 function initializeMap(langitude, longitude, idSelector) {
     var myCenter = new google.maps.LatLng(langitude, longitude),
@@ -163,5 +162,4 @@ function initializeMap(langitude, longitude, idSelector) {
     });
 
     infowindow.open(map, mapMarker);
-
 }
