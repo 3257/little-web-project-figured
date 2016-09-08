@@ -461,9 +461,10 @@ footer a {
     text-align: center;
 }
 
-.weather-days div:hover {
-    color: rgba(255, 255, 255, 0.5)
-}
+/*Hover stops working due to jqeury, need to chose between hover or jqeury.*/
+/*.weather-days div:hover {*/
+    /*color: rgba(255, 255, 255, 0.5)*/
+/*}*/
 
 /*flashing background for days when automatic iteration is on*/
 .button {
