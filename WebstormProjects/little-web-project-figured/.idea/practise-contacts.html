@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Got Weather? => Weather Layer</title>
+    <link rel="stylesheet" href="my-css/practise-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDUQVimvvMF6OGukcy9Mh2kmzLKI7MsxM&callback=initMap">
+    </script>
+
+    <script src="my-scripts/practise-script.js"></script>
+
+</head>
+<body>
+
+<header id="main-header">
+    <div id="logo">GOT WEATHER ?</div>
+    <nav id="main-nav" class="full-map-nav">
+        <ul>
+            <li id="#">
+                <a href="#">
+                    CURRENT WEATHER
+                </a></li>
+            <li><a href="#">
+                WEATHER FORECAST
+            </a></li>
+
+            <li><a href="#">
+                FULL WEATHER MAP
+            </a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main-wrapper" class="clear transparent">
+
+    <div id="page-wrap">
+
+        <div id="about-me">
+            <h2>ABOUT ME</h2>
+            <p>NICE TO MEET YOU!</p>
+            <p>I AM 27-OLD HOPE TO BE PROGRAMMER! I CREATED THIS PAGE FOR YOU TO USE FOR FREE.</p>
+            <p>THEREFORE, YES! I HAVE SHARED THE CODE WITH YOU IN THE LINK BELOW ;-)</p>
+            <p>MAKE SURE YOU CHECK OUT MY OTHER PROJECTS TOO!</p>
+
+        </div>
+
+        <div id="contact-area">
+
+            <form method="post" action="contactengine.php">
+                <label for="Name">Name:</label>
+                <input type="text" name="Name" id="Name"/>
+
+                <label for="City">City:</label>
+                <input type="text" name="City" id="City"/>
+
+                <label for="Email">Email:</label>
+                <input type="text" name="Email" id="Email"/>
+
+                <label for="Message">Message:</label><br/>
+                <textarea name="Message" rows="20" cols="20" id="Message"></textarea>
+
+                <input type="submit" name="submit" value="REACH" class="submit-button button"/>
+            </form>
+
+        </div>
+        <div id="map-canvas-wrapper">
+        <div id="map-canvas">
+        </div>
+            <footer>I AM RIGHT WHERE THE MARKER IS ;-)</footer>
+        </div>
+
+        <div id="other-projects">
+            <h5>LINKS TO OTHER PROJECTS</h5>
+            <ul>
+                <li>Project 1</li>
+                <li> Project 2</li>
+                <li> Project 3</li>
+                <li>Project 4</li></ul>
+        </div>
+
+
+
+    </div>
+
+</main>
+
+
+
+
+<footer class="clear"> CREATED BY DEYAN ALEKSANDROV ||
+    <a href="#">ABOUT THE AUTHOR</a> ||
+    <a href="https://github.com/3257/soft-serve-web-project-figured-version">GITHUB REPO</a>
+</footer>
+
+
+</body>
+</html>

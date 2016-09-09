@@ -1,0 +1,323 @@
+@font-face {
+    font-family: "Kimberley";
+    src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype");
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Kimberley";
+    max-width: 100%;
+    overflow-x: hidden;
+    background: url(http://free.wallpaperbackgrounds.com/earth/a%20dreamy%20world/surreal-earth-23708.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-shadow: 0 5px 2px #000;
+
+}
+
+#main-header {
+    height: 90px;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+
+}
+
+.clear {
+    clear: both;
+}
+
+#logo {
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+    height: 70%;
+    overflow: auto;
+    width: 25%;
+    color: floralwhite;
+    cursor: auto;
+}
+
+#main-nav {
+    color: #EEEEEE;
+    float: left;
+    width: 55%;
+}
+
+#main-nav ul {
+    text-align: center;
+    list-style: none;
+    position: relative;
+}
+
+#main-nav ul li {
+    position: relative;
+    display: inline-block;
+    float: left;
+    font-size: 25px;
+    font-weight: 900;
+    padding: 29px;
+    top: -15px;
+    cursor: pointer;
+    color: floralwhite;
+}
+
+#main-nav ul li:hover {
+
+    border: none;
+    color: rgba(255, 255, 255);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.7);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+/* hover change for full-weather page navigation*/
+#main-nav ul li a:hover {
+
+    border: none;
+    color: rgba(255, 255, 255);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.7);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+#full-weather-nav-first-li {
+    margin-left: 15%;
+}
+
+#main-nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#main-wrapper {
+    position: relative;
+    margin: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    height: 800px;
+    color: floralwhite;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+
+}
+
+
+.transparent {
+    color: rgba(255, 255, 255, .6);
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: floralwhite;
+}
+
+footer a {
+    color: floralwhite;
+    text-decoration: none;
+}
+
+/*infowindow styles*/
+
+
+
+@media only screen and (max-width: 1300px) {
+
+    /*main page start media*/
+    #logo {
+        display: none;
+    }
+
+    #main-nav {
+        color: #EEEEEE;
+        float: left;
+        width: 80%;
+    }
+
+
+    footer {
+        margin-top: -40px;
+    }
+
+    #main-wrapper {
+        position: relative;
+        left: 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-height: 100%;
+        width: 92%;
+        align-content: center;
+        text-align: center;
+    }
+
+    /*main page finish media*/
+
+}
+
+
+#dropdown-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#dropdown-ul li {
+    float: left;
+}
+
+#dropdown-ul  li a {
+    display: inline-block;
+    color: floralwhite;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#dropdown-ul  li.dropdown {
+    display: inline-block;
+}
+
+/*deopdown menu*/
+
+/*contact me form*/
+
+#page-wrap {
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    float: left;
+    width: 93%;
+    padding: 30px;
+    height: 100%;
+}
+
+#contact-area {
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+    padding: 40px;
+    height: 400px;
+    width: 600px;
+    margin-top: 25px;
+    border-radius: 5px;
+}
+
+#contact-area input, #contact-area textarea {
+    position: relative;
+    padding: 5px;
+    width: 60%;
+    font-size: 0.9em;
+    margin: 0px 0px 10px 0px;
+    border: 5px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-area textarea {
+    height: 110px;
+}
+
+#contact-area textarea:focus, #contact-area input:focus {
+    border: 5px solid #FF8C00;
+    border-radius: 5px;
+}
+
+#contact-area input.submit-button {
+    border:none;
+    float: right;
+    width: 20%;
+    border: 5px solid #BB692E;
+
+}
+
+.button {
+    background-color: #BB692E;
+    border-color: #BB692E;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 10px;
+    cursor: pointer;
+
+}
+
+
+label {
+    float: left;
+    text-align: right;
+    margin-right: 35px;
+    width: 30%;
+    padding-top: 5px;
+}
+/*contact me form*/
+
+#map-canvas-wrapper {
+    text-shadow: none;
+    padding: 20px;
+    position: relative;
+    top:-30px;
+    left: 880px;
+    width: 780px;
+    height: 270px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+    color: black;
+}
+
+#map-canvas-wrapper footer{
+    color: white;
+
+}
+
+#map-canvas{
+    width: 99%;
+    height: 99%;
+}
+
+#about-me{
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+    padding: 20px;
+    text-align: left;
+    font-size: 25px;
+    float: right;
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+
+}
+
+#other-projects{
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+    padding: 20px;
+    text-align: left;
+    font-size: 25px;
+    float: left;
+    position: relative;
+    top: -290px;
+    width: 800px;
+    height: 220px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .9);
+}

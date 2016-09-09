@@ -1,3 +1,6 @@
+/**
+ * Created by dido on 09.09.16.
+ */
 $(function () {
 
     var map,
@@ -6,20 +9,29 @@ $(function () {
         gettingData = false,
         openWeatherMapKey = "a28f075ad9633624934634a4d49a37c5";
 
+    $("#dropdown-ul li").click(function () {
+        $("#about-me").before($("#contact-area"));
+    });
+
 
     function initialize() {
         var mapOptions = {
-            zoom: 8,
+            zoom: 12,
             // Bulgaria coordinates.
-            center: new google.maps.LatLng(43, 25),
+            center: new google.maps.LatLng(42.650034, 23.364041),
             mapTypeId: google.maps.MapTypeId.TERRAIN
         };
 
         map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions),
 
-        // Add interaction listeners to make weather requests.
-        google.maps.event.addListener(map, "idle", checkIfDataRequested);
+            mapMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(42.650034, 23.364041),
+                map: map
+            }),
+
+            // Add interaction listeners to make weather requests.
+            google.maps.event.addListener(map, "idle", checkIfDataRequested);
 
         // Sets up and populates the info window with details.
         map.data.addListener("click", function (event) {
