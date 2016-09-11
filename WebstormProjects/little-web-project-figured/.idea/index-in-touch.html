@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Got Weather? => Contacts</title>
+    <link rel="stylesheet" href="my-css/style-in-touch.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDUQVimvvMF6OGukcy9Mh2kmzLKI7MsxM&callback=initMap"
+    ></script>
+    <script src="my-scripts/js-para/plax.js"></script>
+    <script src="my-scripts/index-in-touch-script.js"></script>
+
+</head>
+<body>
+<header id="main-header">
+    <div id="logo">GOT WEATHER ?</div>
+    <nav id="main-nav">
+        <ul>
+            <li>WEATHER RIGHT NOW</li>
+            <li>WEATHER FORECAST</li>
+            <li>FULL WEATHER MAP</li>
+        </ul>
+    </nav>
+</header>
+
+<div id="contacts-wrapper-one" class="clear">
+    <div id="contacts-wrapper-two">
+
+        <img id="bg-bottom-initial" src="../images/croppedImportant.png" alt="bg-bottom-initial">
+        <img id="boat" src="https://cdn0.rubylane.com/shops/quirkyantiques/0002449.1L.jpg?99" alt="js-plax-boat">
+        <img id="birds"
+             src="http://67.media.tumblr.com/3a1aab9c85de8210ccc53c09850c2037/tumblr_mf3g9sdMyc1qk2z5wo1_500.gif"
+             alt="js-plax-birds">
+        <img id="sun" src="http://publicdomainvectors.org/photos/Orange_Sun_Wild_West_Vector_Pixel_Art.png"
+             alt="js-plax-sun">
+        <img id="clouds" src="http://pngimg.com/upload/cloud_PNG25.png" alt="js-plax-clouds">
+
+        <div class="slide">
+            <div class="title">
+                <h1>GET IN TOUCH</h1>
+                <div id="page-wrap">
+                    <div id="contact-area">
+
+                        <form method="post" action="contactengine.php">
+                            <label for="Name">Name:</label>
+                            <input type="text" name="Name" id="Name"/>
+
+                            <label for="City">City:</label>
+                            <input type="text" name="City" id="City"/>
+
+                            <label for="Email">Email:</label>
+                            <input type="text" name="Email" id="Email"/>
+
+                            <label for="Message">Message:</label><br/>
+                            <textarea name="Message" rows="20" cols="20" id="Message"></textarea>
+
+                            <input type="submit" name="submit" value="Submit" class="submit-button"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer class="clear"><a href="#">ABOUT THE AUTHOR</a> ||
+    <a href="#">GET IN TOUCH</a> ||
+    <a href="https://github.com/3257/soft-serve-web-project-figured-version">PROJECT REPO</a>
+</footer>
+</body>
+</html>
