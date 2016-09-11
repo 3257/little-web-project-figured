@@ -330,8 +330,8 @@ footer a {
 
 @media (-webkit-min-device-pixel-ratio: 0) {
     .infoWindowNotice a {
-        background-color: darkred;
-        background-image: -webkit-linear-gradient(left, red 0%, orange 50%, transparent 50%);
+        background-color: black;
+        background-image: -webkit-linear-gradient(left, black 0%, floralwhite 25%, transparent 50%);
         background-position: 100% 0;
         background-size: 200% 200%;
         color: transparent;

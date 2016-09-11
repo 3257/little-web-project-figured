@@ -36,6 +36,12 @@ body {
 
 }
 
+
+a{
+    text-decoration: none;
+    color: floralwhite;
+}
+
 .clear {
     clear: both;
 }
