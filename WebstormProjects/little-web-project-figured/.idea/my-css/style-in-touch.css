@@ -19,7 +19,7 @@ body {
     color: floralwhite;
     overflow: hidden;
     text-shadow: 0 5px 2px #000;
-    background-color: powderblue;
+    background-color:  rosybrown;
 }
 
 #main-header {
@@ -27,7 +27,7 @@ body {
     position: fixed;
     top: 0;
     height: 90px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(77, 38, 0, 0.8);
     -webkit-transition: background-color 0.5s ease;
     -moz-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
@@ -155,8 +155,8 @@ img {
 
 #sun {
     z-index: -2;
-    top: 27%;
-    left: 70%;
+    top: 23%;
+    left: 77%;
     height: 400px;
     width: 500px;
 }
@@ -183,7 +183,7 @@ img {
     padding: 25vh 10%;
     width: 100vw;
     box-sizing: border-box;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 1);
+    box-shadow: 0 -10px 30px rgba(77, 0, 0, 1);
 }
 
 .title {
@@ -193,8 +193,8 @@ img {
     height: 450px;
     padding: 2%;
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 40px rgba(0, 0, 0, .9);
+    background: rgba(77, 38, 0, 0.8);
+    box-shadow: 0 0 40px rgba(77, 38, 0, .9);
 }
 .title h1{
     position: relative;
