@@ -243,7 +243,16 @@ $(function () {
         mapMarker = new google.maps.Marker({
             position: myCenter,
             map: map
-        });
+        }),
+    contentString = '<div id="iw-container">' +
+        '<h1>Find me here</h1>' +
+        '</div>>'
+
+    infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        width: 100
+    });
+
 
 });
 
