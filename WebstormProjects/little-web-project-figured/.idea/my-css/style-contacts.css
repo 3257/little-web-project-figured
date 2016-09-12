@@ -77,7 +77,7 @@ a {
     color: floralwhite;
 }
 
-a{
+a {
     text-decoration: none;
     color: floralwhite;
 }
@@ -114,9 +114,19 @@ footer a {
     text-decoration: none;
 }
 
+footer a:hover {
+    color: floralwhite;
+
+}
+
 .footer-on-scroll {
     text-shadow: none;
     color: #000;
+}
+
+.footer-on-scroll a:hover {
+    text-shadow: 0 5px 2px #000;
+
 }
 
 #contacts-wrapper-one {
@@ -191,9 +201,10 @@ p {
     background: rgba(240, 230, 220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .9);
 }
-#slide2 >div.title{
+
+#slide2 > div.title {
     position: relative;
-    margin-top:25%;
+    margin-top: 25%;
 
 }
 
@@ -218,7 +229,6 @@ p {
 
 }
 
-
 #title {
     background-image: url("http://demo.focus5design.com/wp-content/uploads/dynamik-gen/theme/images/madrid.jpg");
     -webkit-transition: transform 1.5s ease-in-out;
@@ -239,7 +249,6 @@ p {
     transform: scale(1);
     z-index: -2;
 
-
 }
 
 #slide3:before {
@@ -249,30 +258,31 @@ p {
     z-index: -1;
 }
 
-#contacts-map{
+#contacts-map {
 
     -webkit-transition: transform 1.5s ease-in-out;
-  transform: translateZ(-1px) scale(2);
+    transform: translateZ(-1px) scale(2);
     position: relative;
-
 
 }
 
-#contacts-map div{
+#contacts-map div {
     text-shadow: none;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     bottom: 0;
 }
 
-.gm-bundled-control{
+.gm-bundled-control {
     display: none;
 }
-.gm-style-mtc{
+
+.gm-style-mtc {
     display: none;
 }
-.gm-style-cc{
+
+.gm-style-cc {
     display: none;
 }
 
@@ -291,11 +301,6 @@ p {
     -o-transition: color 0.5s ease;
     transition: color 0.5s ease;
     opacity: 0;
-}
-
-#back-to-top:hover {
-    /*implement something cool*/
-
 }
 
 #back-to-top.show {
