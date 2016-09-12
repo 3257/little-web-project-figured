@@ -1,6 +1,3 @@
-/**
- * Created by dido on 11.09.16.
- */
 $(function () {
 
     var $mainHeader = $("#main-header"),
@@ -201,9 +198,8 @@ $(function () {
         contentString = '<div id="iw-container">' +
             '<h2>HELLO WORLD!</h2>' +
             '<div>THIS IS WHERE I AM!</div>' +
-            '<div>TO GET IN TOUCH AND MEET!</div>' +
+            '<div>TO GET IN TOUCH AND MEET,</div>' +
             '<div>USE LINK BELOW ...&#8628;</div>'
-
 
     infowindow = new google.maps.InfoWindow({
         content: contentString,

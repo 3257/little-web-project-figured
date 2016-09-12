@@ -55,12 +55,13 @@ a {
 #main-nav {
     color: #EEEEEE;
     float: left;
-    width: 55%;
+    width: 65%;
 }
 
 #main-nav ul {
     list-style: none;
     position: relative;
+
 }
 
 #main-nav ul li {
@@ -96,7 +97,7 @@ a {
 footer {
     position: fixed;
     bottom: 0;
-    width: 98%;
+    width: 100%;
     height: 50px;
     font-size: 20px;
     text-align: center;
@@ -127,7 +128,6 @@ footer a:hover {
     text-shadow: 0 5px 2px #000;
 
 }
-
 
 #contacts-wrapper-one {
     height: 100%;
@@ -202,14 +202,16 @@ p {
     box-shadow: 0 0 8px rgba(0, 0, 0, .9);
 }
 
-.title>ul>li>a{
+.title > ul > li > a {
 
     color: black;
 }
 
-.title>ul>li>a:hover{
+.title > ul > li > a:hover {
 
-    color: whitesmoke;
+    color: floralwhite;
+    text-shadow: 0 1px 1px #000;
+
 }
 
 #slide2 > div.title {
@@ -240,38 +242,45 @@ p {
 }
 
 #title {
-    background-image: url("http://demo.focus5design.com/wp-content/uploads/dynamik-gen/theme/images/madrid.jpg");
+    background-image: url("../images/title-picture.jpg");
     -webkit-transition: transform 1.5s ease-in-out;
     transform: scale(1.1);
 }
 
 #slide1 {
     height: 20px;
-    background-image: url("http://www.technocrazed.com/wp-content/uploads/2015/11/Cool-Black-And-White-Wallpapers-Resolution-1920x1080-Desktop-Backgrounds-11.jpg");
+    background-image: url("../images/slide-two-picture.jpg");
     transform: translateZ(-1px) scale(2);
     -webkit-transition: transform 1.5s ease-in-out;
     z-index: -1;
 }
 
+@media only screen and (max-width: 1300px) {
+    #slide1 {
+        transform: translateZ(-1px) scale(3);
+
+    }
+
+    #logo{
+        display: none;
+    }
+
+    #main-header{
+        overflow: auto;
+    }
+}
+
 #slide2 {
-    background-image: url("https://images2.alphacoders.com/278/278090.jpg");
+    background-image: url("../images/slide-three-picture.jpg");
     -webkit-transition: transform 1.5s ease-in-out;
     transform: scale(1);
     z-index: -2;
 
 }
 
-#slide3:before {
-    background-image: url("https://hdwallpapers360.files.wordpress.com/2013/08/110d9-bad_weather_beach_1600x1200.jpg");
-    -webkit-transition: transform 1.5s ease-in-out;
-
-    z-index: -1;
-}
-
 #contacts-map {
 
     -webkit-transition: transform 1.5s ease-in-out;
-
 }
 
 #contacts-map div {
@@ -281,17 +290,15 @@ p {
     left: 0;
     bottom: 0;
 }
- .gm-style-iw{
-}
 
-.gm-style .gm-style-iw{
-    font-size: 16px;
-
+.gm-style .gm-style-iw {
+    font-size: 17px;
     font-family: "Kimberley";
     position: relative;
     text-align: center;
     width: 220px !important;
-    height: 170px; !important;
+    height: 170px;
+!important;
     top: 15px !important;
     background-color: rgba(255, 255, 255, .9);
     box-shadow: 17px 12px 28px rgba(0, 0, 0, 0.8);
@@ -302,20 +309,21 @@ p {
 }
 
 /* Remove info window unnecessary background.*/
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2){
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
     display: none;
 }
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4){
+
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4) {
     display: none;
 }
 
 /* Remove little x*/
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) > img{
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) > img {
     display: none;
 }
 
 /* Info window containter*/
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div{
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div {
 
     color: black;
     cursor: default;
@@ -329,11 +337,12 @@ p {
 }
 
 /* Little triangles fix*/
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div{
-    z-index:200;
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div {
+    z-index: 200;
 }
-#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div{
-    z-index:200;
+
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div {
+    z-index: 200;
 }
 
 .gm-bundled-control {
