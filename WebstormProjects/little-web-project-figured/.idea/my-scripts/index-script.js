@@ -8,7 +8,23 @@ $(function () {
         $mainWrapper = $("#main-wrapper"),
         $sideNavInput = $("#side-nav input"),
         $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>"),
-        MISTAKE_MESSAGE = "SORRY! YOU BROKE THE INTERNET! TRY WITH VALID CITY NAME NOW :-)";
+        mistakeMessage = "SORRY! YOU BROKE THE INTERNET! TRY WITH VALID CITY NAME NOW :-)",
+        mapInfowindowContentStringMesage = '<div id="iw-container">' +
+            '<p class="infoWindowNotice">' +
+            '<span class="square">' +
+            '<a class="third after" href="index-five-day.html">' +
+            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE WEATHER FORECAST' +
+            '</a>' +
+            '</span>' +
+            '</p>' +
+            '<p class="infoWindowNotice">' +
+            '<span class="square">' +
+            '<a class="third after" href="index-full-weather-map.html">' +
+            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE FULL MAP' +
+            '</a>' +
+            '</span>' +
+            '</p>' +
+            '</div>>';
 
     $mainWrapper.append($loaderDiv);
 
@@ -19,13 +35,14 @@ $(function () {
         $loaderDiv.remove();
         $mainWrapper.append($html);
 
-        initializeMap(data.coord.lat, data.coord.lon, "map");
+        initializeMap(data.coord.lat, data.coord.lon, "map",mapInfowindowContentStringMesage);
     });
 
     // Return message if promise fails.
     promise("Sofia").fail(function () {
+
         $loaderDiv.remove();
-        $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
+        $mainWrapper.append("<p class=\"something-wrong\">" + mistakeMessage + "</p>");
     })
 
 
@@ -43,32 +60,36 @@ $(function () {
             $loaderDiv.remove();
             $mainWrapper.append($html);
 
-            initializeMap(data.coord.lat, data.coord.lon, "map");
+            initializeMap(data.coord.lat, data.coord.lon, "map",mapInfowindowContentStringMesage);
         });
 
         // Return message on failure.
         promise($cityName).fail(function () {
             $loaderDiv.remove();
-            $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
+            $mainWrapper.append("<p class=\"something-wrong\">" + mistakeMessage + "</p>");
         })
 
     })
 
     // Input function for city names returned.
     $sideNavInput.keydown(function (event) {
+
         var $key = event.which,
             $cityValue;
+
+        // Made to work with the Enter key only.
         if ($key === 13) {
 
             $cityValue = $(this).val();
             $mainWrapper.empty();
             $mainWrapper.append($loaderDiv);
 
-            // Check if value is a valid string and not a number.
+            // Check if value is undefined, a valid string and not a number.
             if (!$cityValue || /^\s*$/.test($cityValue) || !isNaN($cityValue)) {
+
                 $loaderDiv.remove();
                 $mainWrapper.empty();
-                $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
+                $mainWrapper.append("<p class=\"something-wrong\">" + mistakeMessage + "</p>");
             } else {
 
                 // Return city data on success.
@@ -78,13 +99,13 @@ $(function () {
                     $loaderDiv.remove();
                     $mainWrapper.append($html);
 
-                    initializeMap(data.coord.lat, data.coord.lon, "map");
+                    initializeMap(data.coord.lat, data.coord.lon, "map",mapInfowindowContentStringMesage);
                 });
 
                 // Return message on failure.
                 promise($cityValue).fail(function () {
                     $loaderDiv.remove();
-                    $mainWrapper.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
+                    $mainWrapper.append("<p class=\"something-wrong\">" + mistakeMessage + "</p>");
                 })
             }
         }
@@ -98,7 +119,7 @@ $(function () {
 
 })
 
-//Handlebars helpers started.
+// Handlebars helpers started.
 Handlebars.registerHelper("fixTemperatureDisplay", function (temperatureNumber) {
 
     return (temperatureNumber).toFixed(1)
@@ -118,9 +139,9 @@ Handlebars.registerHelper("displayWeatherIcon", function (iconNumber) {
 
     return ("http://openweathermap.org/img/w/" + iconNumber + ".png")
 })
-//Handlebars helpers finished.
+// Handlebars helpers finished.
 
-function initializeMap(langitude, longitude, idSelector) {
+function initializeMap(langitude, longitude, idSelector, infoWindowMessage) {
     var myCenter = new google.maps.LatLng(langitude, longitude),
         mapProp = {
             center: myCenter,
@@ -273,29 +294,7 @@ function initializeMap(langitude, longitude, idSelector) {
             position: myCenter,
             map: map
         }),
-        contentString = '<div id="iw-container">' +
-            '<p class="infoWindowNotice">' +
-            '<span class="square">' +
-            '<a class="third after" href="index-five-day.html">' +
-            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE WEATHER FORECAST' +
-            '</a>' +
-            '</span>' +
-            '</p>' +
-            '<p class="infoWindowNotice">' +
-            '<span class="square">' +
-            '<a lass="third after" href="index.html">' +
-            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE CURRENT WEATHER' +
-            '</a>' +
-            '</span>' +
-            '</p>' +
-            '<p class="infoWindowNotice">' +
-            '<span class="square">' +
-            '<a class="third after" href="index-full-weather-map.html">' +
-            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE FULL MAP' +
-            '</a>' +
-            '</span>' +
-            '</p>' +
-            '</div>>'
+        contentString = infoWindowMessage
 
     infowindow = new google.maps.InfoWindow({
         content: contentString,

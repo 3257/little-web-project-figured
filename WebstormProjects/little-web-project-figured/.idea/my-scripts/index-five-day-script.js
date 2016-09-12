@@ -24,11 +24,27 @@ $(function () {
         $loaderDiv = $("<div class='loader'><div></div><div></div><div></div><div></div></div>"),
         MISTAKE_MESSAGE = "SORRY! YOU BROKE THE INTERNET! TRY WITH VALID CITY NAME NOW :-)",
         TRANSPARENT_COLOR = "rgba(255, 255, 255, .6)",
-        FLORALWHITE_COLOR = "floralwhite";
+        FLORALWHITE_COLOR = "floralwhite",
+        fiveDayMapInfowindowContentStringMesage = '<div id="iw-container">' +
+            '<p class="infoWindowNotice">' +
+            '<span class="square">' +
+            '<a class="third after" href="index.html">' +
+            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE CURRENT WEATHER' +
+            '</a>' +
+            '</span>' +
+            '</p>' +
+            '<p class="infoWindowNotice">' +
+            '<span class="square">' +
+            '<a class="third after" href="index-full-weather-map.html">' +
+            '<img class="image-pointer"  src="http://worldartsme.com/images/finger-pointing-right-free-clipart-1.jpg" alt="pointer"> SEE FULL MAP' +
+            '</a>' +
+            '</span>' +
+            '</p>' +
+            '</div>>';
 
     $mainPageWrapper.append($loaderDiv);
 
-    // Return data for sofia on page load.
+    // Return data for Sofia on page load.
     promiseFiveDays("Sofia").done(function (data) {
 
         $html = fiveDayTemplateCompile(data);
@@ -48,16 +64,14 @@ $(function () {
         $dayOneNameDivOnSide.css({color: TRANSPARENT_COLOR});
 
         // Correct the inner html of all side dates to actual date representation.
-        // Need to be done just one because dates do not when receiving data for other cities.
+        // Need to be done just once because dates do not change when receiving data for other cities.
         $dayOneNameDivOnSide.html($fiveWeatherDatesResult.eq(0).html());
         $dayTwoNameDivOnSide.html($fiveWeatherDatesResult.eq(1).html());
         $dayThreeNameDivOnSide.html($fiveWeatherDatesResult.eq(2).html());
         $dayFourNameDivOnSide.html($fiveWeatherDatesResult.eq(3).html());
         $dayFiveNameDivOnSide.html($fiveWeatherDatesResult.eq(4).html());
 
-        // iterateOverWeatherDays();
-
-        initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
+        initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map", fiveDayMapInfowindowContentStringMesage);
     });
 
     // Click-function for city names returned from main navigation.
@@ -85,22 +99,24 @@ $(function () {
             // Reset the color of the first date on side to transparent.
             $dayOneNameDivOnSide.css({color: TRANSPARENT_COLOR});
 
-            // iterateOverWeatherDays();
-
-            initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
+            initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map", fiveDayMapInfowindowContentStringMesage);
         });
 
         // Return message on failure.
         promiseFiveDays($cityValue).fail(function () {
+
             $loaderDiv.remove();
             $fiveDayForecastContent.append("<p class=\"something-wrong\">" + MISTAKE_MESSAGE + "</p>");
         })
     })
 
-    // Input-function for city names returned from side navigation.
+    // Input-function for city names returned from input.
     $sideNavInput.keydown(function (event) {
+
         var $key = event.which,
             $cityValue;
+
+        // Works for ENTER key only again.
         if ($key === 13) {
 
             $cityValue = $(this).val();
@@ -132,9 +148,7 @@ $(function () {
                     // Reset the color of the first date on side to transparent.
                     $dayOneNameDivOnSide.css({color: TRANSPARENT_COLOR});
 
-                    // iterateOverWeatherDays();
-
-                    initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map");
+                    initializeMap(data.city.coord.lat, data.city.coord.lon, "five-day-map", fiveDayMapInfowindowContentStringMesage);
                 });
 
                 // Return message on failure.
