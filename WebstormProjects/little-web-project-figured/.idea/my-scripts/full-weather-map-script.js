@@ -12,10 +12,8 @@ $(function () {
             zoom: 8,
             // Bulgaria coordinates.
             center: new google.maps.LatLng(43, 25),
-            mapTypeId: google.maps.MapTypeId.TERRAIN,
 
-            // How you would like to style the map.
-            // This is where you would paste any style found on Snazzy Maps.
+            // Styling the map comes from here.
             styles: [
                 {
                     "elementType": "geometry",
