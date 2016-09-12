@@ -276,10 +276,64 @@ p {
 
 #contacts-map div {
     text-shadow: none;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     bottom: 0;
+}
+ .gm-style-iw{
+}
+
+.gm-style .gm-style-iw{
+    font-size: 16px;
+
+    font-family: "Kimberley";
+    position: relative;
+    text-align: center;
+    width: 220px !important;
+    height: 170px; !important;
+    top: 15px !important;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 17px 12px 28px rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    text-align: center;
+    align-content: center;
+    padding: 10px;
+}
+
+/* Remove info window unnecessary background.*/
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2){
+    display: none;
+}
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4){
+    display: none;
+}
+
+/* Remove little x*/
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) > img{
+    display: none;
+}
+
+/* Info window containter*/
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div{
+
+    color: black;
+    cursor: default;
+    position: relative;
+    width: 245px;
+    height: 77px;
+    left: 476px;
+    top: 321px;
+    z-index: 314;
+
+}
+
+/* Little triangles fix*/
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div{
+    z-index:200;
+}
+#contacts-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div{
+    z-index:200;
 }
 
 .gm-bundled-control {

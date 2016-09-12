@@ -304,16 +304,12 @@ function initializeMap(langitude, longitude, idSelector, infoWindowMessage) {
 
     google.maps.event.addListener(infowindow, 'domready', function () {
 
-        // Reference to the DIV that wraps the bottom of infowindow
+        // Reference to the DIV that wraps the bottom of infowindow.
         var iwOuter = $('.gm-style-iw');
 
-        /* Since this div is in a position prior to .gm-div style-iw.
-         * We use jQuery and create a iwBackground variable,
-         * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
-         */
         var iwBackground = iwOuter.prev();
 
-        // Little trianle under infowindow main-index map
+        // Little trianle under infowindow main-index map.
 
         var $iwLittleTriangleBelowInfowindowFirstMainMap =$("#map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div"),
             $iwLittleTriangleBelowInfowindowSecondMainMap =$("#map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div");
@@ -329,7 +325,7 @@ function initializeMap(langitude, longitude, idSelector, infoWindowMessage) {
 
         })
 
-        // Little trianle under infowindow 5-day map
+        // Little trianle under infowindow 5-day map.
 
         var $iwLittleTriangleBelowInfowindowFirstFiveDay =$("#five-day-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div"),
          $iwLittleTriangleBelowInfowindowSecondFiveDay =$("#five-day-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div");
@@ -345,10 +341,10 @@ function initializeMap(langitude, longitude, idSelector, infoWindowMessage) {
 
         })
 
-        // Removes background shadow DIV
+        // Removes background shadow div.
         iwBackground.children(':nth-child(2)').css({'display': 'none'});
 
-        // Removes white background DIV
+        // Removes white background div.
         iwBackground.children(':nth-child(4)').css({'display': 'none'});
 
         // Moves the infowindow 115px to the right.
@@ -357,11 +353,10 @@ function initializeMap(langitude, longitude, idSelector, infoWindowMessage) {
         // Reference to the div that groups the close button elements.
         var iwCloseBtn = iwOuter.next();
 
-        // Apply the desired effect to the close button
+        // Apply the desired effect to the close button.
         iwCloseBtn.css({
             position: "relative",
             opacity: '1',
-            // display: "none",
             right: '10px',
             top: '3px',
             border: '6px solid rgba(226, 105, 105, 0.8)',

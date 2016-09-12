@@ -199,13 +199,18 @@ $(function () {
             map: map
         }),
         contentString = '<div id="iw-container">' +
-            '<h1>Find me here</h1>' +
-            '</div>>'
+            '<h2>HELLO WORLD!</h2>' +
+            '<div>THIS IS WHERE I AM!</div>' +
+            '<div>TO GET IN TOUCH AND MEET!</div>' +
+            '<div>USE LINK BELOW ...&#8628;</div>'
+
 
     infowindow = new google.maps.InfoWindow({
         content: contentString,
         width: 100
     });
+
+    infowindow.open(map, mapMarker);
 
 
 });

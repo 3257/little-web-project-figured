@@ -17,7 +17,7 @@ body {
     color: floralwhite;
     overflow: hidden;
     text-shadow: 0 5px 2px #000;
-    background-color: dimgrey;
+    background-color: rgba(226, 105, 105, 0.8);
 }
 
 #main-header {
@@ -227,7 +227,6 @@ img {
 
 #contact-area input, #contact-area textarea {
     font-family: "Kimberley";
-
     position: relative;
     padding: 5px;
     width: 70%;
@@ -243,7 +242,7 @@ img {
 
 #contact-area textarea:focus, #contact-area input:focus {
     font-family: inherit;
-    border: 4px solid darkslategrey;
+    border: 4px solid rgba(226, 105, 105, 0.8);
     border-radius: 5px;
     font-weight: 200;
 }
@@ -260,7 +259,7 @@ img {
 }
 
 #contact-area input.submit-button:active {
-    border: 4px solid darkslategrey;
+    border: 4px solid rgba(226, 105, 105, 0.8);
 
 }
 
