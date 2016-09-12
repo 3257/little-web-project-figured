@@ -115,7 +115,7 @@ footer a {
 }
 
 footer a:hover {
-    color: floralwhite;
+    color: lightgrey;
 
 }
 
@@ -125,9 +125,11 @@ footer a:hover {
 }
 
 .footer-on-scroll a:hover {
+    color: floralwhite;
     text-shadow: 0 5px 2px #000;
 
 }
+
 
 #contacts-wrapper-one {
     height: 100%;
