@@ -6,125 +6,79 @@ $(function () {
     var $mainHeader = $("#main-header"),
         $footer = $(".footer");
 
-    // Change main header background on scroll down and scroll up, function attached to container
+    // Change main header background on scroll down and scroll up.
     $("#contacts-wrapper-two").scroll(function () {
         var $scrollDistanceFromTop = $(this).scrollTop();
 
+        // 200 is main header cross point.
         if ($scrollDistanceFromTop >= 200) {
 
-            // First slide hide
+            // Scale first slide down.
             $("#title").css({
                 transform: "scale(1)",
             })
 
             $mainHeader.css({
                 backgroundColor: "rgba(0, 0, 0, 1)",
-                // display: "none"
             });
         } else {
 
-            // First slide show
+            // Scale first slide up.
             $("#title").css({
                 transform: "scale(1.1)"
             })
 
             $mainHeader.css({
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
-                // display: "block"
+
             });
         }
-        //
-        // if ($scrollDistanceFromTop >= 1000) {
-        //
-        //     $("#slide1").css({
-        //         transform: "scale(1)"
-        //     })
-        //
-        // } else {
-        //
-        //     $("#slide1").css({
-        //         transform: "scale(1.1)"
-        //     })
-        // }
 
-        // if ($scrollDistanceFromTop >= 2200) {
-        //
-        //     $("#slide2").css({
-        //         transform: "scale(1)"
-        //     })
-        //
-        // } else {
-        //
-        //     $("#slide2").css({
-        //         transform: "scale(1.1)"
-        //     })
-        // }
-
-        // if ($scrollDistanceFromTop >= 4000) {
-        //
-        //     $("#slide3").css({
-        //         transform: "scale(1)"
-        //     })
-        //
-        // } else {
-        //
-        //     $("#slide3").css({
-        //         transform: "scale(1.1)"
-        //     })
-        // }
-
-        if ($scrollDistanceFromTop >= 3000) {
-
-            $("#contacts-map").css({
-                transform: "scale(1)"
-            })
-
-        } else {
-
-            $("#contacts-map").css({
-                transform: "scale(1)"
-            })
-        }
-
-
-
+        // 2365 is map cross point.
         if ($scrollDistanceFromTop >= 2365) {
 
+            // Footer color change when crosses map.
             $footer.addClass("footer-on-scroll");
+
+            // Back to top color change when crosses map.
             $("#back-to-top").addClass("footer-on-scroll");
 
         } else {
             $footer.removeClass("footer-on-scroll");
             $("#back-to-top").removeClass("footer-on-scroll");
-
         }
-    });
-
-    $(window).scroll(function() {
-       document.body.style.background
     });
 
     // Go back to the top.
     if ($("#back-to-top").length) {
-        var scrollTrigger = 100, // px
-            backToTop = function () {
-                var scrollTop = $("#contacts-wrapper-two").scrollTop();
-                if (scrollTop > scrollTrigger) {
-                    $("#back-to-top").addClass("show");
-                } else {
-                    $("#back-to-top").removeClass(" show");
-                }
-            };
-        backToTop();
+
+        var scrollTrigger = 100,
+            $backToTopLink = $("#back-to-top");
+
+        // Activate back to top on scroll.
         $("#contacts-wrapper-two").on("scroll", function () {
             backToTop();
         });
-        $("#back-to-top").on("click", function (e) {
+
+        $backToTopLink.on("click", function (e) {
+
             e.preventDefault();
             $("#contacts-wrapper-two").animate({
                 scrollTop: 0
-            }, 700);
+            }, 1000);
         });
+
+        function backToTop() {
+
+            // Position from wrapper beginning.
+            var scrollTop = $("#contacts-wrapper-two").scrollTop();
+
+            if (scrollTop > scrollTrigger) {
+                $backToTopLink.addClass("show");
+            } else {
+                $backToTopLink.removeClass("show");
+            }
+        };
     }
 
     var myCenter = new google.maps.LatLng(42.650105, 23.363869),
@@ -244,9 +198,9 @@ $(function () {
             position: myCenter,
             map: map
         }),
-    contentString = '<div id="iw-container">' +
-        '<h1>Find me here</h1>' +
-        '</div>>'
+        contentString = '<div id="iw-container">' +
+            '<h1>Find me here</h1>' +
+            '</div>>'
 
     infowindow = new google.maps.InfoWindow({
         content: contentString,
