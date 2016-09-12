@@ -76,7 +76,7 @@ body {
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
-/* hover change for full-weather page navigation*/
+/* Hover change for page navigation.*/
 #main-nav ul li a:hover {
 
     border: none;
@@ -94,7 +94,7 @@ body {
     margin-left: 5%;
 }
 
-/*loader effect*/
+/* Loader effect.*/
 
 .loader {
     position: relative;
@@ -137,7 +137,7 @@ body {
     }
 }
 
-/*loader effect*/
+/* Loader effect completed.*/
 
 .something-wrong {
     position: relative;
@@ -290,7 +290,6 @@ body {
 }
 
 #weather-info-aside div:first-of-type {
-
     font-size: 30px;
 }
 
@@ -313,7 +312,7 @@ footer a {
     text-decoration: none;
 }
 
-/*infowindow styles*/
+/* Infowindow styles.*/
 
 .infoWindowNotice a {
     text-shadow: none;
@@ -327,7 +326,20 @@ footer a {
     transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
-.gm-style-iw {
+/* Fix infowindow CSS for main page.*/
+#map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div.gm-style-iw {
+    text-align: center;
+    width: 300px !important;
+    top: 15px !important;
+    left: 0px !important;
+    background-color: #fff;
+    box-shadow: 1px 20px 37px rgba(0, 0, 0, 0.8);
+    border: 4px solid rgba(226, 105, 105, 0.8);
+    border-radius: 5px;
+}
+
+/* Fix infowindow CSS for five-day page.*/
+#five-day-map > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div.gm-style-iw {
     text-align: center;
     width: 300px !important;
     top: 15px !important;
@@ -365,11 +377,11 @@ footer a {
     }
 }
 
-/*infowindow*/
+/* Infowindow styles finished.*/
 
 @media only screen and (max-width: 1300px) {
 
-    /*main page start media*/
+    /* Main page start media.*/
     #logo {
         display: none;
     }
@@ -418,11 +430,11 @@ footer a {
         width: 100%;
     }
 
-    /*main page finish media*/
+    /* Main page finish media.*/
 
 }
 
-/*Five-day weather page additions*/
+/* Five-day weather page additions.*/
 
 #five-day-forecast-nav {
     float: left;
@@ -500,98 +512,6 @@ footer a {
     text-align: center;
 }
 
-/*Hover stops working due to jqeury, need to chose between hover or jqeury.*/
-/*.weather-days div:hover {*/
-/*color: rgba(255, 255, 255, 0.5)*/
-/*}*/
-
-/*flashing background for days when automatic iteration is on*/
-.button {
-    position: relative;
-    width: 100%;
-    border: none;
-    color: floralwhite;
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 0px;
-    text-align: center;
-}
-
-@-webkit-keyframes glowing {
-
-    0% {
-        background-color: #8c8c8c;
-        -webkit-box-shadow: 0 0 3px #8c8c8c;
-    }
-    50% {
-        background-color: #737373;
-        -webkit-box-shadow: 0 0 40px #737373;
-    }
-    100% {
-        background-color: #666666;
-        -webkit-box-shadow: 0 0 3px #666666;
-    }
-}
-
-@-moz-keyframes glowing {
-    0% {
-        background-color: #8c8c8c;
-        -moz-box-shadow: 0 0 3px #8c8c8c;
-    }
-    50% {
-        background-color: #737373;
-        -moz-box-shadow: 0 0 40px #737373;
-    }
-    100% {
-        background-color: #666666;
-        -moz-box-shadow: 0 0 3px #666666;
-    }
-
-}
-
-@-o-keyframes glowing {
-    0% {
-        background-color: #8c8c8c;
-        box-shadow: 0 0 3px #8c8c8c;
-    }
-    50% {
-        background-color: #737373;
-        box-shadow: 0 0 40px #737373;
-    }
-
-    100% {
-        background-color: #666666;
-        box-shadow: 0 0 3px #666666;
-    }
-
-}
-
-@keyframes glowing {
-    0% {
-        background-color: #8c8c8c;
-        box-shadow: 0 0 3px #8c8c8c;
-    }
-    50% {
-        background-color: #737373;
-        box-shadow: 0 0 40px #737373;
-    }
-
-    100% {
-        background-color: #666666;
-        box-shadow: 0 0 3px #666666;
-    }
-
-}
-
-.button {
-    -webkit-animation: glowing 1500ms infinite;
-    -moz-animation: glowing 1500ms infinite;
-    -o-animation: glowing 1500ms infinite;
-    animation: glowing 1500ms infinite;
-}
-
-/*flashing background for days when automatic iteration is on*/
-
 #day-one-wrapper {
     margin-top: 25%;
 }
@@ -638,7 +558,7 @@ footer a {
         margin-bottom: 10px;
     }
 
-    /* Displaying only the header of the navigation*/
+    /* Displaying only the header of the navigation.*/
     #five-day-forecast-nav li:not(:first-of-type) {
         display: none;
     }
@@ -681,7 +601,7 @@ footer a {
         padding: 0;
     }
 
-    /*full-map page*/
+    /* Full-map page.*/
     #main-nav ul {
         margin-left: 25%;
     }
@@ -696,7 +616,7 @@ footer a {
     display: none;
 }
 
-/*Full weather map additions*/
+/* Full weather map additions.*/
 
 #map-canvas {
     width: 100%;
